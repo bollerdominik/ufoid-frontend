@@ -8,6 +8,15 @@ import { HeaderComponent } from './header/header.component';
 import { VideoDetailComponent } from './video-detail/video-detail.component';
 import { VideoListComponent } from './video-list/video-list.component';
 import { VideoPostComponent } from './video-list/video-post/video-post.component';
+import {RouterModule, Routes} from "@angular/router";
+import { SoftwareComponent } from './software/software.component';
+import { HomeComponent } from './home/home.component';
+
+const appRoutes: Routes = [
+  { path: 'software', component: SoftwareComponent },
+  { path: 'ufo-videos', component: VideoListComponent},
+  { path: '', component: HomeComponent}
+];
 
 @NgModule({
   declarations: [
@@ -15,12 +24,15 @@ import { VideoPostComponent } from './video-list/video-post/video-post.component
     HeaderComponent,
     VideoDetailComponent,
     VideoListComponent,
-    VideoPostComponent
+    VideoPostComponent,
+    SoftwareComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
