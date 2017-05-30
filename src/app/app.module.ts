@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
   { path: 'ufo-videos', component: VideoListComponent},
+  { path: 'ufo-videos/:link', component: VideoDetailComponent},
   { path: '', component: HomeComponent}
 ];
 
