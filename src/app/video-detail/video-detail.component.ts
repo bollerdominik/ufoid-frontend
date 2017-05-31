@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {VideoPostService} from "../VideoPostService";
+import {VideoPostService} from "../video-post.service";
 
 @Component({
   selector: 'app-video-detail',
