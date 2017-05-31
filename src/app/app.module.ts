@@ -11,6 +11,7 @@ import { VideoPostComponent } from './video-list/video-post/video-post.component
 import {RouterModule, Routes} from "@angular/router";
 import { SoftwareComponent } from './software/software.component';
 import { HomeComponent } from './home/home.component';
+import {VideoPostService} from "./VideoPostService";
 
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [VideoPostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

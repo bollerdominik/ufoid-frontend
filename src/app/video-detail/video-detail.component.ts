@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {VideoPostService} from "../VideoPostService";
 
 @Component({
   selector: 'app-video-detail',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private videoPostService: VideoPostService) {
+  }
 
   ngOnInit() {
+    if (!this.videoPostService.videoPost) {
+      console.log("is undefined");
+      // Load data from api
+    } else {
+      console.log(this.videoPostService.videoPost);
+    }
   }
 
 }

@@ -13,6 +13,4 @@ export class VideoPost {
     this.numberOfComments = numberOfComments;
     this.link = this.title.replace(new RegExp(' ', 'g'), '-');
   }
-
-
 }
