@@ -1,8 +1,16 @@
 <article class="post-entry">
-  <h1>{{videoPost.title}}</h1>
-  <p>
-    <i class="fa fa-calendar"></i> Recorded: April 11, 2017
-    <a href="profile/view/user"><i class="fa fa-user"></i> {{videoPost.user}}</a>
-    <i class="fa fa-map-marker"></i> {{videoPost.location}}
-  </p>
+  <header>
+    <h1>{{videoPost.title}}</h1>
+    <p>
+      <i class="fa fa-calendar"></i> Recorded: April 11, 2017
+      <a href="profile/view/user"><i class="fa fa-user"></i> {{videoPost.user}}</a>
+      <i class="fa fa-map-marker"></i> {{videoPost.location}}
+    </p>
+  </header>
+  <div class="row">
+    <video controls loop controlsList="nodownload" poster="http://ufoid.net/storage/b3a5/d19d/21e3/2045/thumbs-1.jpg">
+      <source src="http://ufoid.net/storage/b3a5/d19d/21e3/2045/video.mp4" type="video/mp4" />
+      Browser not supported
+    </video>
+  </div>
 </article>
