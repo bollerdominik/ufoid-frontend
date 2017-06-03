@@ -12,6 +12,7 @@ import {RouterModule, Routes} from "@angular/router";
 import { SoftwareComponent } from './software/software.component';
 import { HomeComponent } from './home/home.component';
 import {VideoPostService} from "./video-post.service";
+import {ApiService} from "./api.service";
 
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
@@ -36,7 +37,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [VideoPostService],
+  providers: [VideoPostService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

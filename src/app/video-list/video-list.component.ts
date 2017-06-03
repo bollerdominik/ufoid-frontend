@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {VideoPost} from './video-post.model';
 import {VideoPostService} from "../video-post.service";
+import {ApiService} from "../api.service";
 
 @Component({
   selector: 'app-video-list',
@@ -14,13 +15,19 @@ export class VideoListComponent implements OnInit {
     new VideoPost(3, "video 4", "userABC", "London UK", 10)
   ];
 
-  constructor(private videoPostService: VideoPostService) { }
+  constructor(private videoPostService: VideoPostService, private apiService: ApiService) { }
 
   ngOnInit() {
+    this.apiService.getVideoPosts().subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
   }
 
   onClick(videopost: VideoPost) {
     this.videoPostService.videoPost = videopost;
   }
+
+
 
 }
