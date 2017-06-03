@@ -9,9 +9,9 @@ import {VideoPostService} from "../video-post.service";
 })
 export class VideoListComponent implements OnInit {
   videoPosts: VideoPost[] = [
-    new VideoPost("A title for  video", "userABC", "London UK", 5),
-    new VideoPost("Another  video", "userABC", "London UK", 10),
-    new VideoPost("video 4", "userABC", "London UK", 10)
+    new VideoPost(1, "A title for  video", "userABC", "London UK", 5),
+    new VideoPost(2, "Another  video", "userABC", "London UK", 10),
+    new VideoPost(3, "video 4", "userABC", "London UK", 10)
   ];
 
   constructor(private videoPostService: VideoPostService) { }

@@ -16,7 +16,7 @@ import {VideoPostService} from "./video-post.service";
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
   { path: 'ufo-videos', component: VideoListComponent},
-  { path: 'ufo-videos/:link', component: VideoDetailComponent},
+  { path: 'ufo-videos/:id/:link', component: VideoDetailComponent},
   { path: '', component: HomeComponent}
 ];
 
