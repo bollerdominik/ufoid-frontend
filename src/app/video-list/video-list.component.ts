@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {VideoPost} from './video-post.model';
 import {VideoPostService} from "../video-post.service";
 import {ApiService} from "../api.service";
+import {Response} from "@angular/http";
 
 @Component({
   selector: 'app-video-list',
@@ -19,8 +20,11 @@ export class VideoListComponent implements OnInit {
 
   ngOnInit() {
     this.apiService.getVideoPosts().subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
+      (response: Response) => {
+        const data = response.json();
+        console.log(data);
+      },
+      (error) => console.error(error)
     );
   }
 
