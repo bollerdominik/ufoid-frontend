@@ -26,7 +26,7 @@ export class VideoListComponent implements OnInit {
         console.log(data);
         for (const post of data._embedded.videoPosts){
           this.videoPosts.push(new VideoPost(
-            post.id, post.videoTitle, post.uploaderName, post.locationName, 4));
+            post.id, post.videoTitle, post.uploaderName, post.locationName, post.numberOfComments));
         }
       },
       (error) => console.error(error)
