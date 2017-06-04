@@ -3,6 +3,7 @@ import {VideoPost} from './video-post.model';
 import {VideoPostService} from "../video-post.service";
 import {ApiService} from "../api.service";
 import {Response} from "@angular/http";
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-video-list',
@@ -19,10 +20,12 @@ export class VideoListComponent implements OnInit {
   constructor(private videoPostService: VideoPostService, private apiService: ApiService) { }
 
   ngOnInit() {
-    this.apiService.getVideoPosts().subscribe(
+    this.apiService.getVideoPosts().map(
       (response: Response) => {
         const data = response.json();
-        console.log(data);
+        for (const videopost of data){
+          console.log(videopost);
+        }
       },
       (error) => console.error(error)
     );
