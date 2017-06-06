@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {VideoPostService} from "../video-post.service";
+import {VideoPostService} from "../shared/video-post.service";
 import {VideoPost} from "../video-list/video-post.model";
+import {videoExtension, videoPreFix, videoStorageFolder} from "../shared/data.service";
 
 @Component({
   selector: 'app-video-detail',
@@ -15,13 +16,17 @@ export class VideoDetailComponent implements OnInit {
 
   ngOnInit() {
     if (!this.videoPostService.videoPost) {
-      console.log("is undefined");
-      // Load data from api
-      this.videoPost = new VideoPost(1, "Another  video", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44"));
+      console.log("load data from api");
+      this.videoPost = new VideoPost(1, "Another  video", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44"), "b3a5d19d21e32045");
     } else {
       console.log(this.videoPostService.videoPost);
       this.videoPost = this.videoPostService.videoPost;
     }
+  }
+
+  onClickDownloadButton() {
+    window.location.href = "../" + videoStorageFolder + "/" +
+      this.videoPost.id + "/" + this.videoPost.hash + "/" + videoPreFix + this.videoPost.getDateForVideoDetail() + videoExtension;
   }
 
 }

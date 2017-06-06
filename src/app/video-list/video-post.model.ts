@@ -7,8 +7,9 @@ export class VideoPost {
   public numberOfComments: number;
   public link: string;
   public recordingDate: Date;
+  public hash: String;
 
-  constructor(id: number, title: string, user: string, location: string, numberOfComments: number, recordingDate: Date) {
+  constructor(id: number, title: string, user: string, location: string, numberOfComments: number, recordingDate: Date, hash: String) {
     this.id = id;
     this.title = title;
     this.user = user;
@@ -16,6 +17,7 @@ export class VideoPost {
     this.numberOfComments = numberOfComments;
     this.link = this.title.replace(new RegExp(' ', 'g'), '-');
     this.recordingDate = recordingDate;
+    this.hash = hash;
   }
 
   getDateForVideoDetail() {
