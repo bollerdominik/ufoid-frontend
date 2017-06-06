@@ -11,9 +11,9 @@ import {Response} from "@angular/http";
 })
 export class VideoListComponent implements OnInit {
   videoPosts: VideoPost[] = [
-    new VideoPost(1, "A title for  video", "userABC", "London UK", 5),
-    new VideoPost(2, "Another  video", "userABC", "London UK", 10),
-    new VideoPost(3, "video 4", "userABC", "London UK", 10)
+    new VideoPost(1, "A title for  video", "userABC", "London UK", 5, new Date("2017-06-04T15:40:44.392+0000")),
+    new VideoPost(2, "Another  video", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44.392+0000")),
+    new VideoPost(3, "video 4", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44.392+0000"))
   ];
 
   constructor(private videoPostService: VideoPostService, private apiService: ApiService) { }
@@ -26,7 +26,7 @@ export class VideoListComponent implements OnInit {
         console.log(data);
         for (const post of data._embedded.videoPosts){
           this.videoPosts.push(new VideoPost(
-            post.id, post.videoTitle, post.uploaderName, post.locationName, post.numberOfComments));
+            post.id, post.videoTitle, post.uploaderName, post.locationName, post.numberOfComments, post.recordingDate));
         }
       },
       (error) => console.error(error)

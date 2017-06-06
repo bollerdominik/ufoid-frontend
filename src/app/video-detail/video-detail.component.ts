@@ -17,7 +17,7 @@ export class VideoDetailComponent implements OnInit {
     if (!this.videoPostService.videoPost) {
       console.log("is undefined");
       // Load data from api
-      this.videoPost = new VideoPost(1, "Another  video", "userABC", "London UK", 10);
+      this.videoPost = new VideoPost(1, "Another  video", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44"));
     } else {
       console.log(this.videoPostService.videoPost);
       this.videoPost = this.videoPostService.videoPost;
