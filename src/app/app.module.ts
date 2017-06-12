@@ -12,7 +12,7 @@ import {RouterModule, Routes} from "@angular/router";
 import { SoftwareComponent } from './software/software.component';
 import { HomeComponent } from './home/home.component';
 import {VideoPostService} from "./shared/video-post.service";
-import {ApiService} from "./api.service";
+import {ApiService} from "./shared/api.service";
 
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },

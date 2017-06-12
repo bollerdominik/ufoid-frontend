@@ -4,3 +4,4 @@
 export const videoStorageFolder = "storage";
 export const videoPreFix = "Capture--";
 export const videoExtension = ".avi";
+export const webVideoName = "video.mp4";

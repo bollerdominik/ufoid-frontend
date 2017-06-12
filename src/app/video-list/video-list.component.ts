@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {VideoPost} from './video-post.model';
 import {VideoPostService} from "../shared/video-post.service";
-import {ApiService} from "../api.service";
+import {ApiService} from "../shared/api.service";
 import {Response} from "@angular/http";
 
 @Component({
