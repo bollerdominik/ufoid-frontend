@@ -8,6 +8,6 @@ export  class ApiService {
   constructor(private http: Http) {}
 
   getVideoPosts() {
-    return this.http.get('http://localhost:8080/api/videoPosts');
+    return this.http.get('http://localhost:8080/api/videos');
   }
 }

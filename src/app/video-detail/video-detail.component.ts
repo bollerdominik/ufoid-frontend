@@ -17,7 +17,7 @@ export class VideoDetailComponent implements OnInit {
   ngOnInit() {
     if (!this.videoPostService.videoPost) {
       console.log("load data from api");
-      this.videoPost = new VideoPost(1, "Another  video", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44"), "b3a5d19d21e32045");
+      this.videoPost = new VideoPost(1, "Another  video", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44"));
     } else {
       console.log(this.videoPostService.videoPost);
       this.videoPost = this.videoPostService.videoPost;
@@ -26,7 +26,7 @@ export class VideoDetailComponent implements OnInit {
 
   onClickDownloadButton() {
     window.location.href = "../" + videoStorageFolder + "/" +
-      this.videoPost.id + "/" + this.videoPost.hash + "/" + videoPreFix + this.videoPost.getDateForVideoDetail() + videoExtension;
+      this.videoPost.id + "/" + "/" + videoPreFix + this.videoPost.getDateForVideoDetail() + videoExtension;
   }
 
 }
