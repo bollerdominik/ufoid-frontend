@@ -4,6 +4,7 @@ import {VideoPost} from "../video-list/video-post.model";
 import {videoExtension, videoPreFix, videoStorageFolder} from "../shared/data.service";
 import {ApiService} from "../shared/api.service";
 import {Response} from "@angular/http";
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'app-video-detail',
@@ -13,21 +14,19 @@ import {Response} from "@angular/http";
 export class VideoDetailComponent implements OnInit {
   private videoPost: VideoPost;
 
-  constructor(private videoPostService: VideoPostService, private apiService: ApiService) {
+  constructor(private videoPostService: VideoPostService, private apiService: ApiService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     if (!this.videoPostService.videoPost) {
       console.log("load data from api");
-      this.apiService.getVideoDetail(1).subscribe(
-        (response: Response) => {
-          const post = response.json();
-          console.log(post);
-          this.videoPost = new VideoPost(
-            post.id, post.videoTitle, post.uploaderName, post.locationName, post.numberOfComments, new Date(post.recordingDate * 1000));
-        },
-        (error) => console.error(error)
-      );
+      this.route.params.subscribe((params: Params) =>
+        this.apiService.getVideoDetail(+params["id"]).subscribe(
+          (response: Response) => {
+            this.videoPost = this.apiService.getVideoPostModelFromJson(response.json());
+          },
+          (error) => console.error(error)
+        ));
     } else {
       console.log(this.videoPostService.videoPost);
       this.videoPost = this.videoPostService.videoPost;

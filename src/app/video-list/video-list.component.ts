@@ -23,10 +23,8 @@ export class VideoListComponent implements OnInit {
       (response: Response) => {
         this.videoPosts = [];
         const data = response.json();
-        console.log(data);
         for (const post of data){
-          this.videoPosts.push(new VideoPost(
-            post.id, post.videoTitle, post.uploaderName, post.locationName, post.numberOfComments, new Date(post.recordingDate * 1000)));
+          this.videoPosts.push(this.apiService.getVideoPostModelFromJson(post));
         }
       },
       (error) => console.error(error)
