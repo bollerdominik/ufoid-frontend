@@ -10,4 +10,7 @@ export  class ApiService {
   getVideoPosts() {
     return this.http.get('http://localhost:8080/api/videos');
   }
+  getVideoDetail(id: number) {
+    return this.http.get('http://localhost:8080/api/videos/' + id);
+  }
 }
