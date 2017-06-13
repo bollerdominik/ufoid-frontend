@@ -4,6 +4,8 @@
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
 import {VideoPost} from "../video-list/video-post.model";
+import {Response} from "@angular/http";
+
 @Injectable()
 export  class ApiService {
   constructor(private http: Http) {}
@@ -13,6 +15,15 @@ export  class ApiService {
   }
   getVideoDetail(id: number) {
     return this.http.get('http://localhost:8080/api/videos/' + id);
+  }
+  getVideoDownloadHash(id: number): String {
+    let hash: String;
+    this.http.get('http://localhost:8080/api/videos/' + id + '/download')
+      .subscribe((response: Response) => {
+      hash = response.toString();
+        }, (error) => console.error(error)
+      );
+    return hash;
   }
   getVideoPostModelFromJson(data): VideoPost {
     return new VideoPost(

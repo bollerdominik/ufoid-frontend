@@ -34,8 +34,9 @@ export class VideoDetailComponent implements OnInit {
   }
 
   onClickDownloadButton() {
-    window.location.href = "../" + videoStorageFolder + "/" +
-      this.videoPost.id + "/" + "/" + videoPreFix + this.videoPost.getDateForVideoDetail() + videoExtension;
+    this.apiService.getVideoDownloadHash(this.videoPost.id);
+    // window.location.href = "../" + videoStorageFolder + "/" +
+    //   this.videoPost.id + "/" + "/" + videoPreFix + this.videoPost.getDateForVideoDetail() + videoExtension;
   }
 
 }
