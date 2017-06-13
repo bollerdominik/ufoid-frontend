@@ -13,12 +13,15 @@ import { SoftwareComponent } from './software/software.component';
 import { HomeComponent } from './home/home.component';
 import {VideoPostService} from "./shared/video-post.service";
 import {ApiService} from "./shared/api.service";
+import { SignupComponent } from './auth/signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
   { path: 'ufo-videos', component: VideoListComponent},
   { path: 'ufo-videos/:id/:link', component: VideoDetailComponent},
-  { path: '', component: HomeComponent}
+  { path: '', component: HomeComponent},
+  { path: 'signup', component: SignupComponent}
 ];
 
 @NgModule({
@@ -29,7 +32,9 @@ const appRoutes: Routes = [
     VideoListComponent,
     VideoPostComponent,
     SoftwareComponent,
-    HomeComponent
+    HomeComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
