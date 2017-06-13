@@ -16,7 +16,6 @@ export  class ApiService {
   }
   getVideoPostModelFromJson(data): VideoPost {
     return new VideoPost(
-      data.id, data.videoTitle, data.uploaderName, data.locationName, data.numberOfComments, new Date(data.recordingDate * 1000));
-
+      data.id, data.videoTitle, data.uploaderName, data.locationName, data.numberOfComments, new Date(data.recordingDate));
   }
 }
