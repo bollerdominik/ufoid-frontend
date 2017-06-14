@@ -15,6 +15,7 @@ import {VideoPostService} from "./shared/video-post.service";
 import {ApiService} from "./shared/api.service";
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
+import {AuthService} from "./shared/auth.service";
 
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
@@ -42,7 +43,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [VideoPostService, ApiService],
+  providers: [VideoPostService, ApiService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
