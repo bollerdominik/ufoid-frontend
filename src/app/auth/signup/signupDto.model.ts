@@ -6,7 +6,7 @@ export class SignUpDto {
   private email: String;
   private password: String;
 
-  constructor(username: String, email: String, password: String) {
+  constructor(username: string, email: string, password: string) {
     this.username = username;
     this.email = email;
     this.password = password;

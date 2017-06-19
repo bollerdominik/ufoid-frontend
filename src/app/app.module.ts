@@ -22,7 +22,8 @@ const appRoutes: Routes = [
   { path: 'ufo-videos', component: VideoListComponent},
   { path: 'ufo-videos/:id/:link', component: VideoDetailComponent},
   { path: '', component: HomeComponent},
-  { path: 'signup', component: SignupComponent}
+  { path: 'signup', component: SignupComponent},
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
