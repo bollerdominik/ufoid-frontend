@@ -2,13 +2,13 @@
  * Created by dubsta on 03.06.2017.
  */
 import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
+import {Http, RequestOptionsArgs, Headers} from "@angular/http";
 import {VideoPost} from "../video-list/video-post.model";
-import {Response} from "@angular/http";
+import {AuthService} from "./auth.service";
 
 @Injectable()
 export  class ApiService {
-  constructor(private http: Http) {}
+  constructor(private http: Http, private authService: AuthService) {}
 
   getVideoPosts() {
     return this.http.get('http://localhost:8080/api/videos');
@@ -16,14 +16,11 @@ export  class ApiService {
   getVideoDetail(id: number) {
     return this.http.get('http://localhost:8080/api/videos/' + id);
   }
-  getVideoDownloadHash(id: number): String {
-    let hash: String;
-    this.http.get('http://localhost:8080/api/videos/' + id + '/download')
-      .subscribe((response: Response) => {
-      hash = response.toString();
-        }, (error) => console.error(error)
-      );
-    return hash;
+  getVideoDownloadHash(id: number) {
+    const headers = new Headers();
+    headers.append('Authorization', this.authService.token);
+    const opts: RequestOptionsArgs = { headers: headers };
+    return this.http.get('http://localhost:8080/api/videos/' + id + '/download', opts);
   }
   getVideoPostModelFromJson(data): VideoPost {
     return new VideoPost(

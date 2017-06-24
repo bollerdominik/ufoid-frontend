@@ -5,6 +5,7 @@ import {videoExtension, videoPreFix, videoStorageFolder} from "../shared/data.se
 import {ApiService} from "../shared/api.service";
 import {Response} from "@angular/http";
 import {ActivatedRoute, Params} from "@angular/router";
+import {AuthService} from "../shared/auth.service";
 
 @Component({
   selector: 'app-video-detail',
@@ -13,8 +14,10 @@ import {ActivatedRoute, Params} from "@angular/router";
 })
 export class VideoDetailComponent implements OnInit {
   private videoPost: VideoPost;
+  private authError = false;
 
-  constructor(private videoPostService: VideoPostService, private apiService: ApiService, private route: ActivatedRoute) {
+  constructor(private videoPostService: VideoPostService, private apiService: ApiService, private authService: AuthService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -34,9 +37,22 @@ export class VideoDetailComponent implements OnInit {
   }
 
   onClickDownloadButton() {
-    this.apiService.getVideoDownloadHash(this.videoPost.id);
-    // window.location.href = "../" + videoStorageFolder + "/" +
-    //   this.videoPost.id + "/" + "/" + videoPreFix + this.videoPost.getDateForVideoDetail() + videoExtension;
+    if (!this.authService.token) {
+      this.authError = true;
+      return;
+    }
+    let hash: string;
+    this.apiService.getVideoDownloadHash(this.videoPost.id).subscribe((response: Response) => {
+        hash = response.text();
+        console.log(hash);
+        window.location.href = "../" + videoStorageFolder + "/" +
+          this.videoPost.id + "/" + hash + "/" + videoPreFix + this.videoPost.getDateForVideoDetail() + videoExtension;
+      }, (error) => {
+        if (error.status === 403) {
+          this.authError = true;
+        }
+      }
+    );
   }
 
 }
