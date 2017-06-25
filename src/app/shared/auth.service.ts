@@ -18,26 +18,14 @@ export  class AuthService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const opts: RequestOptionsArgs = { headers: headers };
-    this.http.post('http://localhost:8080/api/users/create', dto, opts)
-      .subscribe(
-        (response: Response) => {
-          console.log(response);
-          return response;
-        }
-      );
+    return this.http.post('http://localhost:8080/api/users/create', dto, opts);
   }
 
-  logInUser(username: string, password: string) {
+  logInUser(username: string, password: string){
     const dto: LogInDto = new LogInDto(username, password);
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const opts: RequestOptionsArgs = { headers: headers };
-    this.http.post('http://localhost:8080/api/login', dto, opts)
-      .subscribe(
-        (response: Response) => {
-          this.token = response.headers.get('authorization').slice(7);
-          return response;
-        }
-      );
+    return this.http.post('http://localhost:8080/api/login', dto, opts);
   }
 }

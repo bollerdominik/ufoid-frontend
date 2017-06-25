@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../shared/auth.service";
 import {NgForm} from "@angular/forms";
+import {Response} from "@angular/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -8,15 +10,28 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  private authError = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
   onLogIn(form: NgForm) {
+    this.authError = false;
     const password = form.value.password;
     const username = form.value.username;
-    this.authService.logInUser(username, password);
+    this.authService.logInUser(username, password).subscribe(
+      (response: Response) => {
+        if (response.status === 200) {
+          this.authService.token = response.headers.get('authorization').slice(7);
+          this.router.navigate(['ufo-videos']);
+        }
+      }, error => {
+        if (error.status === 401) {
+          this.authError = true;
+        }
+      }
+    );
   }
 }

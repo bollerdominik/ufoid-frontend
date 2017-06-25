@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {AuthService} from "../../shared/auth.service";
+import {Response, Headers} from "@angular/http";
 
 @Component({
   selector: 'app-signup',
@@ -8,6 +9,9 @@ import {AuthService} from "../../shared/auth.service";
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  private signUpSuccess = false;
+  private existingLoginError = true;
+  private otherError = false;
 
   constructor(private authService: AuthService) { }
 
@@ -15,10 +19,25 @@ export class SignupComponent implements OnInit {
   }
 
   onSignUp(form: NgForm) {
+    this.signUpSuccess = false;
+    this.existingLoginError = false;
+    this.otherError = false;
     const email = form.value.email;
     const password = form.value.password;
     const username = form.value.username;
-    this.authService.createUser(username, email, password);
+    this.authService.createUser(username, email, password).subscribe(
+      (response: Response) => {
+        if (response.status === 200) {
+          this.signUpSuccess = true;
+        }
+      }, error => {
+        if (error.status === 400) {
+          this.existingLoginError = true;
+        } else if (error.status === 409) {
+          this.otherError = true;
+        }
+      }
+    );
   }
 
 }
