@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
       (response: Response) => {
         if (response.status === 200) {
           this.authService.token = response.headers.get('authorization').slice(7);
+          this.authService.userName = username;
           this.router.navigate(['ufo-videos']);
         }
       }, error => {

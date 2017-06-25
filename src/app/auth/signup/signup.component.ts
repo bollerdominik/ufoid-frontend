@@ -10,7 +10,7 @@ import {Response, Headers} from "@angular/http";
 })
 export class SignupComponent implements OnInit {
   private signUpSuccess = false;
-  private existingLoginError = true;
+  private existingLoginError = false;
   private otherError = false;
 
   constructor(private authService: AuthService) { }

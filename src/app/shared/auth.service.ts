@@ -8,6 +8,7 @@ import {LogInDto} from "../auth/login/LogInDto.model";
 @Injectable()
 export  class AuthService {
   public token: string;
+  public userName: string;
 
   constructor(private http: Http) {
   }
