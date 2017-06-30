@@ -7,7 +7,6 @@ import {LogInDto} from "../auth/login/LogInDto.model";
 
 @Injectable()
 export  class AuthService {
-  public token: string;
   public userName: string;
 
   constructor(private http: Http) {
@@ -26,7 +25,7 @@ export  class AuthService {
     const dto: LogInDto = new LogInDto(username, password);
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    const opts: RequestOptionsArgs = { headers: headers };
+    const opts: RequestOptionsArgs = { headers: headers, withCredentials: true};
     return this.http.post('http://localhost:8080/api/login', dto, opts);
   }
 }

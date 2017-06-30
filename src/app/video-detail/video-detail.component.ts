@@ -6,6 +6,7 @@ import {ApiService} from "../shared/api.service";
 import {Response} from "@angular/http";
 import {ActivatedRoute, Params} from "@angular/router";
 import {AuthService} from "../shared/auth.service";
+import {applySourceSpanToExpressionIfNeeded} from "@angular/compiler/src/output/output_ast";
 
 @Component({
   selector: 'app-video-detail',
@@ -37,7 +38,7 @@ export class VideoDetailComponent implements OnInit {
   }
 
   onClickDownloadButton() {
-    if (!this.authService.token) {
+    if (!window.localStorage.token) {
       this.authError = true;
       return;
     }
@@ -45,8 +46,8 @@ export class VideoDetailComponent implements OnInit {
     this.apiService.getVideoDownloadHash(this.videoPost.id).subscribe((response: Response) => {
         hash = response.text();
         console.log(hash);
-        window.location.href = "../" + videoStorageFolder + "/" +
-          this.videoPost.id + "/" + hash + "/" + videoPreFix + this.videoPost.getDateForVideoDetail() + videoExtension;
+        // window.location.href = "../" + videoStorageFolder + "/" +
+        //   this.videoPost.id + "/" + hash + "/" + videoPreFix + this.videoPost.getDateForVideoDetail() + videoExtension;
       }, (error) => {
         if (error.status === 403) {
           this.authError = true;

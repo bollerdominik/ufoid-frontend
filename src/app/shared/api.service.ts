@@ -18,7 +18,7 @@ export  class ApiService {
   }
   getVideoDownloadHash(id: number) {
     const headers = new Headers();
-    headers.append('Authorization', this.authService.token);
+    headers.append('Authorization', window.localStorage.token);
     const opts: RequestOptionsArgs = { headers: headers };
     return this.http.get('http://localhost:8080/api/videos/' + id + '/download', opts);
   }
