@@ -16,6 +16,7 @@ import {ApiService} from "./shared/api.service";
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import {AuthService} from "./shared/auth.service";
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
   { path: 'ufo-videos/:id/:link', component: VideoDetailComponent},
   { path: '', component: HomeComponent},
   { path: 'signup', component: SignupComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'user/:username', component: UserProfileComponent},
 ];
 
 @NgModule({
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     SoftwareComponent,
     HomeComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

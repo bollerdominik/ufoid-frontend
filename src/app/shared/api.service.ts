@@ -26,4 +26,7 @@ export  class ApiService {
     return new VideoPost(
       data.id, data.videoTitle, data.uploaderName, data.locationName, data.numberOfComments, new Date(data.recordingDate));
   }
+  getUser(username: string) {
+    return this.http.get('http://localhost:8080/api/users/' + username);
+  }
 }

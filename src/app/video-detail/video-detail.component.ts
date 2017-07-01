@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {VideoPostService} from "../shared/video-post.service";
 import {VideoPost} from "../video-list/video-post.model";
-import {videoExtension, videoPreFix, videoStorageFolder} from "../shared/data.service";
 import {ApiService} from "../shared/api.service";
 import {Response} from "@angular/http";
 import {ActivatedRoute, Params} from "@angular/router";
 import {AuthService} from "../shared/auth.service";
-import {applySourceSpanToExpressionIfNeeded} from "@angular/compiler/src/output/output_ast";
 
 @Component({
   selector: 'app-video-detail',
