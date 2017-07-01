@@ -1,4 +1,5 @@
-<article class="post-entry" *ngIf="videoPost">
+<div class="container">
+  <article class="post-entry" *ngIf="videoPost">
   <header>
     <h1>{{videoPost.title}}</h1>
     <p>
@@ -21,4 +22,6 @@
   <div class="row">
     <div *ngIf="authError" class="alert alert-danger" role="alert">Please <a href="login">log in</a> to perform this action</div>
   </div>
-</article>
+  </article>
+</div>
+

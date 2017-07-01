@@ -10,6 +10,9 @@ import {Response} from "@angular/http";
 })
 export class UserProfileComponent implements OnInit {
 
+  private username: string;
+  private reputation: number;
+
   constructor(private route: ActivatedRoute, private apiService: ApiService) {
   }
 
@@ -17,6 +20,8 @@ export class UserProfileComponent implements OnInit {
     this.route.params.subscribe((params: Params) => (
       this.apiService.getUser(params['username']).subscribe((response: Response) => {
           console.log(response.json());
+          this.username = response.json().username;
+          this.reputation = 13332;
         }, (error) => {
           if (error.status === 404) {
             // Todo: redirect to 404 page

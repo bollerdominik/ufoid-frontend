@@ -1,30 +1,33 @@
-<div class="card-columns">
-  <div class="card" *ngFor="let videopost of videoPosts">
-    <a [routerLink]="[videopost.id, videopost.link]" (click)="onClick(videopost)">
-    <img src="http://ufoid.net/storage/b3a5/d19d/21e3/2045/thumbs-1.jpg" class="img class=card-img-top img-fluid">
-    <div class="card-block">
-      <h5 class="card-title">{{videopost.title}}</h5>
-      <ul class="list-group">
-        <li class="list-group-item">
+<div class="container">
+  <div class="card-columns">
+    <div class="card" *ngFor="let videopost of videoPosts">
+      <a [routerLink]="[videopost.id, videopost.link]" (click)="onClick(videopost)">
+        <img src="http://ufoid.net/storage/b3a5/d19d/21e3/2045/thumbs-1.jpg" class="img class=card-img-top img-fluid">
+        <div class="card-block">
+          <h5 class="card-title">{{videopost.title}}</h5>
+          <ul class="list-group">
+            <li class="list-group-item">
           <span>
             <i class="fa fa-map-marker"></i>
             {{videopost.location}}
           </span>
-        </li>
-        <li class="list-group-item">
+            </li>
+            <li class="list-group-item">
           <span>
           <i class="fa fa-user"></i>
           {{videopost.user}}
           </span>
-        </li>
-        <li class="list-group-item">
+            </li>
+            <li class="list-group-item">
           <span>
           <i class="fa fa-comments-o"></i>
             {{videopost.numberOfComments}} comments
           </span>
-        </li>
-      </ul>
+            </li>
+          </ul>
+        </div>
+      </a>
     </div>
-    </a>
   </div>
+
 </div>
