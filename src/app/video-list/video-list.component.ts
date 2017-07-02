@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {VideoPost} from './video-post.model';
 import {VideoPostService} from "../shared/video-post.service";
 import {ApiService} from "../shared/api.service";
@@ -10,7 +10,7 @@ import {Route, Router} from "@angular/router";
   templateUrl: './video-list.component.html',
   styleUrls: ['./video-list.component.css']
 })
-export class VideoListComponent implements OnInit {
+export class VideoListComponent implements OnInit, OnChanges {
   videoPosts: VideoPost[] = [
     new VideoPost(1, "A title for  video", "userABC", "London UK", 5, new Date("2017-06-04T15:40:44.392+0000")),
     new VideoPost(2, "Another  video", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44.392+0000")),
@@ -18,7 +18,7 @@ export class VideoListComponent implements OnInit {
   ];
   @Input() private user: string;
 
-  constructor(private videoPostService: VideoPostService, private apiService: ApiService, private router: Router) { }
+  constructor(private videoPostService: VideoPostService, private apiService: ApiService) { }
 
   ngOnInit() {
     this.apiService.getVideoPosts().subscribe(
@@ -31,8 +31,12 @@ export class VideoListComponent implements OnInit {
       },
       (error) => console.error(error)
     );
+  }
 
-    console.log(this.user);
+  ngOnChanges() {
+    if (this.user) {
+      console.log(this.user);
+    }
   }
 
   onClick(videopost: VideoPost) {

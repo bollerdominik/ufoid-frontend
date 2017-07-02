@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Params, ActivatedRoute} from "@angular/router";
 import {ApiService} from "../shared/api.service";
-import {Response} from "@angular/http";
 import 'rxjs/Rx';
 
 @Component({
@@ -11,7 +10,7 @@ import 'rxjs/Rx';
 })
 export class UserProfileComponent implements OnInit {
 
-  private username: string;
+  public username: string;
   private reputation: number;
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) {
@@ -20,9 +19,17 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params: Params) => (
       this.apiService.getUser(params['username']).map(res => res.json()).subscribe(data => {
-      this.username = data.username;
-      this.reputation = 2222;
-    })));
+        if (data) {
+          this.username = data.username;
+          this.reputation = 1222;
+        }
+    },
+      error => {
+        if (error.status === 404) {
+          // Todo: redirect to 404 page
+          console.log('no user found');
+        }
+      })));
   }
 
 }
