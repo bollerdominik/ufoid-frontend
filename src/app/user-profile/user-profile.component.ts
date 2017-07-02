@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Params, ActivatedRoute} from "@angular/router";
 import {ApiService} from "../shared/api.service";
 import 'rxjs/Rx';
+import {VideoPost} from "../video-list/video-post.model";
 
 @Component({
   selector: 'app-user-profile',
@@ -10,8 +11,9 @@ import 'rxjs/Rx';
 })
 export class UserProfileComponent implements OnInit {
 
-  public username: string;
+  private username: string;
   private reputation: number;
+  private videoPosts: VideoPost[] = [];
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) {
   }
@@ -22,6 +24,9 @@ export class UserProfileComponent implements OnInit {
         if (data) {
           this.username = data.username;
           this.reputation = 1222;
+          for (const post of data.videoPosts){
+            this.videoPosts.push(this.apiService.getVideoPostModelFromJson(post));
+          }
         }
     },
       error => {
