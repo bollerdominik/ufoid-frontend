@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, Output} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {VideoPost} from './video-post.model';
 import {VideoPostService} from "../shared/video-post.service";
 import {ApiService} from "../shared/api.service";
@@ -20,7 +20,7 @@ export class VideoListComponent implements OnInit, OnChanges {
   constructor(private videoPostService: VideoPostService, private apiService: ApiService) { }
 
   ngOnInit() {
-    if (!this.fromUser){
+    if (!this.fromUser) {
       this.apiService.getVideoPosts().subscribe(
         (response: Response) => {
           this.videoPosts = [];
@@ -28,7 +28,6 @@ export class VideoListComponent implements OnInit, OnChanges {
           for (const post of data){
             this.videoPosts.push(this.apiService.getVideoPostModelFromJson(post));
           }
-          console.log("here");
           console.log(this.videoPosts);
         },
         (error) => console.error(error)
