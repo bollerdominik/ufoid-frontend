@@ -17,10 +17,4 @@ export class VideoPost {
     this.link = this.title.replace(new RegExp(' ', 'g'), '-');
     this.recordingDate = recordingDate;
   }
-
-  getDateForVideoDetail() {
-    return this.recordingDate.getFullYear() + "-" + (this.recordingDate.getMonth() + 1) + "-"
-      + this.recordingDate.getDate()
-      + "--" + this.recordingDate.getHours() + "-" + this.recordingDate.getMinutes() + "-" + this.recordingDate.getSeconds();
-  }
 }
