@@ -2,12 +2,11 @@
 import {Injectable} from "@angular/core";
 import {Http, RequestOptionsArgs} from "@angular/http";
 import {SignUpDto} from "../auth/signup/signupDto.model";
-import {Response, Headers} from "@angular/http";
+import {Headers} from "@angular/http";
 import {LogInDto} from "../auth/login/LogInDto.model";
 
 @Injectable()
 export  class AuthService {
-  public userName: string;
 
   constructor(private http: Http) {
   }
@@ -27,5 +26,12 @@ export  class AuthService {
     headers.append('Content-Type', 'application/json');
     const opts: RequestOptionsArgs = { headers: headers, withCredentials: true};
     return this.http.post('http://localhost:8080/api/login', dto, opts);
+  }
+
+  checkToken() {
+    const headers = new Headers();
+    headers.append('Authorization', window.localStorage.token);
+    const opts: RequestOptionsArgs = { headers: headers };
+    return this.http.get('http://localhost:8080/api/check', opts);
   }
 }
