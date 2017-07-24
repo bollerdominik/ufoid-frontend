@@ -28,7 +28,6 @@ export class VideoListComponent implements OnInit, OnChanges {
           for (const post of data){
             this.videoPosts.push(this.apiService.getVideoPostModelFromJson(post));
           }
-          console.log(this.videoPosts);
         },
         (error) => console.error(error)
       );

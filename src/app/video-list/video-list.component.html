@@ -7,22 +7,28 @@
           <h5 class="card-title">{{videopost.title}}</h5>
           <ul class="list-group">
             <li class="list-group-item">
-          <span>
-            <i class="fa fa-map-marker"></i>
-            {{videopost.location}}
-          </span>
+              <span>
+                <i class="fa fa-map-marker"></i>
+                {{videopost.location}}
+              </span>
             </li>
             <li class="list-group-item">
-          <span>
-          <i class="fa fa-user"></i>
-          {{videopost.user}}
-          </span>
+              <span>
+                <i class="fa fa-calendar"></i>
+                {{videopost.recordingDate | date:'medium'}}
+              </span>
             </li>
             <li class="list-group-item">
-          <span>
-          <i class="fa fa-comments-o"></i>
-            {{videopost.numberOfComments}} comments
-          </span>
+              <span>
+              <i class="fa fa-user"></i>
+              {{videopost.user}}
+              </span>
+            </li>
+            <li class="list-group-item">
+              <span>
+              <i class="fa fa-comments-o"></i>
+                {{videopost.numberOfComments}} comments
+              </span>
             </li>
           </ul>
         </div>
