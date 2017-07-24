@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { VideoDetailComponent } from './video-detail/video-detail.component';
 import { VideoListComponent } from './video-list/video-list.component';
-import { VideoPostComponent } from './video-list/video-post/video-post.component';
 import {RouterModule, Routes} from "@angular/router";
 import { SoftwareComponent } from './software/software.component';
 import { HomeComponent } from './home/home.component';
@@ -34,7 +33,6 @@ const appRoutes: Routes = [
     HeaderComponent,
     VideoDetailComponent,
     VideoListComponent,
-    VideoPostComponent,
     SoftwareComponent,
     HomeComponent,
     SignupComponent,
