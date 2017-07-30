@@ -17,4 +17,10 @@ export class VideoPost {
     this.link = this.title.replace(new RegExp(' ', 'g'), '-');
     this.recordingDate = recordingDate;
   }
+
+  getVideoFileName(): string {
+    return 'Capture--' + this.recordingDate.toISOString().slice(0, 10) + '--'
+      + this.recordingDate.toTimeString().slice(0, 8).replace(new RegExp(':', 'g'), '-')
+      + '.avi';
+  }
 }

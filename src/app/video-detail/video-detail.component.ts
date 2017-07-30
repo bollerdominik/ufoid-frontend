@@ -40,12 +40,11 @@ export class VideoDetailComponent implements OnInit {
       this.authError = true;
       return;
     }
+
     let hash: string;
     this.apiService.getVideoDownloadHash(this.videoPost.id).subscribe((response: Response) => {
         hash = response.text();
-        console.log(hash);
-        // window.location.href = "../" + videoStorageFolder + "/" +
-        //   this.videoPost.id + "/" + hash + "/" + videoPreFix + this.videoPost.getDateForVideoDetail() + videoExtension;
+        window.location.href = 'http://localhost:8080/api/files/' + this.videoPost.id + '/' + this.videoPost.getVideoFileName() + '/' + hash;
       }, (error) => {
         if (error.status === 403) {
           this.authError = true;
