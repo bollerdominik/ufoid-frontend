@@ -44,7 +44,8 @@ export class VideoDetailComponent implements OnInit {
     let hash: string;
     this.apiService.getVideoDownloadHash(this.videoPost.id).subscribe((response: Response) => {
         hash = response.text();
-        window.location.href = 'http://localhost:8080/api/files/' + this.videoPost.id + '/' + this.videoPost.getVideoFileName() + '/' + hash;
+        window.location.href = 'http://localhost:8080/api/files/' + this.videoPost.id + '/'
+          + hash + '/' + this.videoPost.getVideoFileName();
       }, (error) => {
         if (error.status === 403) {
           this.authError = true;
