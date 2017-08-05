@@ -16,7 +16,6 @@ export class VideoListComponent implements OnInit, OnChanges {
     new VideoPost(3, "video 4", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44.392+0000"))
   ];
   @Input() private fromUser: boolean = false;
-  private isDataAvailable: boolean = false;
 
   constructor(private apiService: ApiService) { }
 
@@ -27,10 +26,9 @@ export class VideoListComponent implements OnInit, OnChanges {
           this.videoPosts = [];
           const data = response.json();
           for (const post of data){
-            console.log('reading from api')
+            console.log('reading video list from api');
             this.videoPosts.push(this.apiService.getVideoPostModelFromJson(post));
           }
-          this.isDataAvailable = true;
         },
         (error) => console.error(error)
       );

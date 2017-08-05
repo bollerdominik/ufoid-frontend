@@ -33,7 +33,10 @@ export  class ApiService {
     return this.http.get('http://localhost:8080/api/users/' + username);
   }
   getAllVideosForAdmin(): Observable<VideoPost[]> {
-    return this.http.get('http://localhost:8080/api/videos').map((response: Response) => {
+    const headers = new Headers();
+    headers.append('Authorization', window.localStorage.token);
+    const opts: RequestOptionsArgs = { headers: headers };
+    return this.http.get('http://localhost:8080/api/admin/videos', opts).map((response: Response) => {
       const data = response.json();
       const videoPosts = [];
       for (const post of data){

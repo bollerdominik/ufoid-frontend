@@ -1,4 +1,5 @@
-<p>
-  admin wjorks!
-</p>
-<app-video-list [videoPosts]="videoPosts" [fromUser]="true"></app-video-list>
+<div class="container">
+  <div class="card-columns">
+    <app-video-card *ngFor="let videopost of videoPosts" [videoPost]="videopost"></app-video-card>
+  </div>
+</div>

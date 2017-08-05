@@ -20,8 +20,11 @@ export class AdminComponent implements OnInit {
     this.authService.checkAdmin().subscribe(
       (response: Response) => {
         if (response.status === 200) {
-          this.apiService.getAllVideosForAdmin().subscribe(data =>
-          this.videoPosts = data);
+          this.apiService.getAllVideosForAdmin().subscribe(data => {
+            this.videoPosts = data;
+            console.log(data);
+          }
+          );
         } else {
           console.log('not admin');
           this.router.navigate(['/']);
