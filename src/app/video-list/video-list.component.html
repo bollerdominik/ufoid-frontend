@@ -1,39 +1,5 @@
 <div class="container">
-  <div class="card-columns">
-    <div class="card" *ngFor="let videopost of videoPosts">
-      <a [routerLink]="['/ufo-videos', videopost.id, videopost.link]" (click)="onClick(videopost)">
-        <img src="http://localhost:8080/api/files/{{videopost.id}}/thumbs.jpg" class="img class=card-img-top img-fluid">
-        <div class="card-block">
-          <h5 class="card-title">{{videopost.title}}</h5>
-          <ul class="list-group">
-            <li class="list-group-item">
-              <span>
-                <i class="fa fa-map-marker"></i>
-                {{videopost.location}}
-              </span>
-            </li>
-            <li class="list-group-item">
-              <span>
-                <i class="fa fa-calendar"></i>
-                {{videopost.recordingDate | date:'medium'}}
-              </span>
-            </li>
-            <li class="list-group-item">
-              <span>
-              <i class="fa fa-user"></i>
-              {{videopost.user}}
-              </span>
-            </li>
-            <li class="list-group-item">
-              <span>
-              <i class="fa fa-comments-o"></i>
-                {{videopost.numberOfComments}} comments
-              </span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
+  <div class="card-columns" *ngIf="isDataAvailable">
+    <app-video-card *ngFor="let videopost of videoPosts" [videoPost]="videopost"></app-video-card>
   </div>
-
 </div>

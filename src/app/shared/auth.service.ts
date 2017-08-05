@@ -34,4 +34,11 @@ export  class AuthService {
     const opts: RequestOptionsArgs = { headers: headers };
     return this.http.get('http://localhost:8080/api/check', opts);
   }
+
+  checkAdmin() {
+    const headers = new Headers();
+    headers.append('Authorization', window.localStorage.token);
+    const opts: RequestOptionsArgs = { headers: headers };
+    return this.http.get('http://localhost:8080/api/admin/check', opts);
+  }
 }

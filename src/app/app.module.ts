@@ -16,6 +16,8 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import {AuthService} from "./shared/auth.service";
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AdminComponent } from './admin/admin.component';
+import { VideoCardComponent } from './video-list/video-card/video-card.component';
 
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
@@ -25,6 +27,7 @@ const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'login', component: LoginComponent},
   { path: 'user/:username', component: UserProfileComponent},
+  { path: 'admin', component: AdminComponent},
 ];
 
 @NgModule({
@@ -37,7 +40,9 @@ const appRoutes: Routes = [
     HomeComponent,
     SignupComponent,
     LoginComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    AdminComponent,
+    VideoCardComponent
   ],
   imports: [
     BrowserModule,
