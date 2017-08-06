@@ -7,10 +7,11 @@ export class VideoPost {
   public numberOfComments: number;
   public link: string;
   public recordingDate: Date;
+  public uploadDate: Date
   public isPublished: boolean;
   public downloadCounter: number;
 
-  constructor(id: number, title: string, user: string, location: string, numberOfComments: number, recordingDate: Date,
+  constructor(id: number, title: string, user: string, location: string, numberOfComments: number, recordingDate: Date, uploadDate: Date,
               isPublished?: boolean, downloadCounter?: number) {
     this.id = id;
     this.title = title;
@@ -19,6 +20,7 @@ export class VideoPost {
     this.numberOfComments = numberOfComments;
     this.link = this.title.replace(new RegExp(' ', 'g'), '-');
     this.recordingDate = recordingDate;
+    this.uploadDate = uploadDate;
     this.isPublished = isPublished;
     this.downloadCounter = downloadCounter;
   }

@@ -7,6 +7,7 @@
         <button type="button" *ngIf="videopost.isPublished" class="btn btn-success" (click)="onClickPublishButton(videopost)">Published</button>
         <button type="button" *ngIf="!videopost.isPublished" class="btn btn-secondary" (click)="onClickPublishButton(videopost)">Un-Published</button>
         <p>Download count: {{videopost.downloadCounter}}</p>
+        <p>Upload date: {{videopost.uploadDate | date:'medium'}}</p>
       </div>
     </div>
 </div>

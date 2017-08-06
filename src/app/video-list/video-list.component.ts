@@ -11,9 +11,9 @@ import {Response} from "@angular/http";
 })
 export class VideoListComponent implements OnInit, OnChanges {
   @Input() videoPosts: VideoPost[] = [
-    new VideoPost(1, "A title for  video", "userABC", "London UK", 5, new Date("2017-06-04T15:40:44.392+0000"), true),
-    new VideoPost(2, "Another  video", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44.392+0000"), true),
-    new VideoPost(3, "video 4", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44.392+0000"), true)
+    new VideoPost(1, "A title for  video", "userABC", "London UK", 5, new Date("2017-06-04T15:40:44.392+0000"), new Date(), true),
+    new VideoPost(2, "Another  video", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44.392+0000"),  new Date(), true),
+    new VideoPost(3, "video 4", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44.392+0000"), new Date(), true)
   ];
   @Input() private fromUser: boolean = false;
 

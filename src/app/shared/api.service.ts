@@ -27,11 +27,11 @@ export  class ApiService {
   }
   getVideoPostModelFromJson(data): VideoPost {
     return new VideoPost(
-      data.id, data.videoTitle, data.uploaderName, data.locationName, data.numberOfComments, new Date(data.recordingDate));
+      data.id, data.videoTitle, data.uploaderName, data.locationName, data.numberOfComments, new Date(data.recordingDate), new Date(data.uploadDate));
   }
   getAdminVideoPostModelFromJson(data): VideoPost {
     return new VideoPost(
-      data.id, data.videoTitle, data.uploaderName, data.locationName, data.numberOfComments, new Date(data.recordingDate), data.isPublished, data.downloadCounter);
+      data.id, data.videoTitle, data.uploaderName, data.locationName, data.numberOfComments, new Date(data.recordingDate), new Date(data.uploadDate), data.isPublished, data.downloadCounter);
   }
   getUser(username: string) {
     return this.http.get('http://localhost:8080/api/users/' + username);
