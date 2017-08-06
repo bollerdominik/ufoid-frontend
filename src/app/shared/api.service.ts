@@ -27,7 +27,11 @@ export  class ApiService {
   }
   getVideoPostModelFromJson(data): VideoPost {
     return new VideoPost(
-      data.id, data.videoTitle, data.uploaderName, data.locationName, data.numberOfComments, new Date(data.recordingDate), data.published);
+      data.id, data.videoTitle, data.uploaderName, data.locationName, data.numberOfComments, new Date(data.recordingDate));
+  }
+  getAdminVideoPostModelFromJson(data): VideoPost {
+    return new VideoPost(
+      data.id, data.videoTitle, data.uploaderName, data.locationName, data.numberOfComments, new Date(data.recordingDate), data.isPublished, data.downloadCounter);
   }
   getUser(username: string) {
     return this.http.get('http://localhost:8080/api/users/' + username);
@@ -40,7 +44,7 @@ export  class ApiService {
       const data = response.json();
       const videoPosts = [];
       for (const post of data){
-        videoPosts.push(this.getVideoPostModelFromJson(post));
+        videoPosts.push(this.getAdminVideoPostModelFromJson(post));
       }
       return videoPosts;
     })
@@ -49,5 +53,12 @@ export  class ApiService {
           return Observable.throw('Unauthorized');
         }
       });
+  }
+  setVideoPublished(id: number, isPublished: boolean) {
+    const headers = new Headers();
+    headers.append('Authorization', window.localStorage.token);
+    const opts: RequestOptionsArgs = { headers: headers };
+    console.log(opts);
+    return this.http.post('http://localhost:8080/api/admin/video/' + id + '/' + isPublished, '', opts);
   }
 }

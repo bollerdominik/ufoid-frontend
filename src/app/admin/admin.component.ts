@@ -22,7 +22,6 @@ export class AdminComponent implements OnInit {
         if (response.status === 200) {
           this.apiService.getAllVideosForAdmin().subscribe(data => {
             this.videoPosts = data;
-            console.log(data);
           }
           );
         } else {
@@ -37,7 +36,12 @@ export class AdminComponent implements OnInit {
   }
 
   onClickPublishButton(videopost: VideoPost) {
-    videopost.isPublished = !videopost.isPublished;
+    this.apiService.setVideoPublished(videopost.id, !videopost.isPublished).subscribe(
+      (response: Response) => {
+        console.log('updated video published status to ' + !videopost.isPublished)
+        videopost.isPublished = !videopost.isPublished;
+      }
+    );
   }
 
 }
