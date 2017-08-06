@@ -1,5 +1,11 @@
 <div class="container">
-  <div class="card-columns">
-    <app-video-card *ngFor="let videopost of videoPosts" [videoPost]="videopost"></app-video-card>
-  </div>
+    <div class="row" *ngFor="let videopost of videoPosts">
+      <div class="col">
+        <app-video-card [videoPost]="videopost"></app-video-card>
+      </div>
+      <div class="col">
+        <button type="button" *ngIf="videopost.isPublished" class="btn btn-success" (click)="onClickPublishButton(videopost)">Published</button>
+        <button type="button" *ngIf="!videopost.isPublished" class="btn btn-secondary" (click)="onClickPublishButton(videopost)">Un-Published</button>
+      </div>
+    </div>
 </div>

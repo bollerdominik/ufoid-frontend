@@ -36,4 +36,8 @@ export class AdminComponent implements OnInit {
     );
   }
 
+  onClickPublishButton(videopost: VideoPost) {
+    videopost.isPublished = !videopost.isPublished;
+  }
+
 }

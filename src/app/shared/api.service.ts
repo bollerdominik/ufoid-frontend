@@ -27,7 +27,7 @@ export  class ApiService {
   }
   getVideoPostModelFromJson(data): VideoPost {
     return new VideoPost(
-      data.id, data.videoTitle, data.uploaderName, data.locationName, data.numberOfComments, new Date(data.recordingDate));
+      data.id, data.videoTitle, data.uploaderName, data.locationName, data.numberOfComments, new Date(data.recordingDate), data.published);
   }
   getUser(username: string) {
     return this.http.get('http://localhost:8080/api/users/' + username);
