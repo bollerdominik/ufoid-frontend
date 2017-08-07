@@ -1,0 +1,33 @@
+<div class="container">
+  <article class="post-entry" *ngIf="videoPost">
+    <header>
+      <div class="form-group row">
+        <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Title:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" placeholder={{videoPost.title}}>
+        </div>
+      </div>
+      <p>
+        <i class="fa fa-calendar"></i> Recorded: {{videoPost.recordingDate | date:'medium'}}
+        <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{videoPost.user}}</a>
+        <i class="fa fa-map-marker"></i> {{videoPost.location}}
+      </p>
+    </header>
+    <div class="row">
+      <video controls loop controlsList="nodownload" poster="http://localhost:8080/api/files/{{videoPost.id}}/thumbs.jpg">
+        <source src="http://localhost:8080/api/files/{{videoPost.id}}/video.mp4" type="video/mp4" />
+        Browser not supported
+      </video>
+    </div>
+    <div class="form-group row">
+      <label for="exampleTextarea">Description:</label>
+      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-primary">Save changes</button>
+      <button type="button" class="btn btn-secondary">Cancel</button>
+    </div>
+
+  </article>
+</div>
+

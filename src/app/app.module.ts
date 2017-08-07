@@ -18,10 +18,12 @@ import {AuthService} from "./shared/auth.service";
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AdminComponent } from './admin/admin.component';
 import { VideoCardComponent } from './video-list/video-card/video-card.component';
+import { EditViewComponent } from './video-detail/edit-view/edit-view.component';
 
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
   { path: 'ufo-videos', component: VideoListComponent},
+  { path: 'ufo-videos/:id/edit', component: EditViewComponent},
   { path: 'ufo-videos/:id/:link', component: VideoDetailComponent},
   { path: '', component: HomeComponent},
   { path: 'signup', component: SignupComponent},
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
     LoginComponent,
     UserProfileComponent,
     AdminComponent,
-    VideoCardComponent
+    VideoCardComponent,
+    EditViewComponent
   ],
   imports: [
     BrowserModule,
