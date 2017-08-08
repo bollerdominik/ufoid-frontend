@@ -20,6 +20,15 @@
       </video>
     </div>
     <div class="form-group row">
+      <label>Location:</label>
+      <input type="text" class="form-control" id="autocompleteInput">
+    </div>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+
+
+    <div class="form-group row">
       <label for="exampleTextarea">Description:</label>
       <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
     </div>
