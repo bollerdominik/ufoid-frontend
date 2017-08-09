@@ -5,6 +5,8 @@ import {Response} from "@angular/http";
 import {VideoPost} from "../../video-list/video-post.model";
 import {MapsAPILoader} from "@agm/core";
 import {DataService} from "../../shared/data.service";
+import {Location} from '@angular/common';
+
 declare var google: any;
 
 @Component({
@@ -21,7 +23,7 @@ export class EditViewComponent implements OnInit {
   private videoErrorSaving: boolean = false;
 
   constructor(private apiService: ApiService, private dataService: DataService, private route: ActivatedRoute, private loader: MapsAPILoader,
-              private zone: NgZone) { }
+              private zone: NgZone, private location: Location) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) =>
@@ -67,6 +69,10 @@ export class EditViewComponent implements OnInit {
       },
       (error) => this.videoErrorSaving = true
     );
+  }
+
+  cancel() {
+    this.location.back();
   }
 
 }
