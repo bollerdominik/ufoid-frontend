@@ -2,12 +2,12 @@
   <a [routerLink]="['/ufo-videos', videoPost.id, videoPost.link]" (click)="onClick(videoPost)">
     <img src="http://localhost:8080/api/files/{{videoPost.id}}/thumbs.jpg" class="img class=card-img-top img-fluid">
     <div class="card-block">
-      <h5 class="card-title">{{videoPost.title}}</h5>
+      <h5 class="card-title">{{videoPost.videoTitle}}</h5>
       <ul class="list-group">
         <li class="list-group-item">
               <span>
                 <i class="fa fa-map-marker"></i>
-                {{videoPost.location}}
+                {{videoPost.locationName}}
               </span>
         </li>
         <li class="list-group-item">

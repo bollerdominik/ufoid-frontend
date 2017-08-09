@@ -41,11 +41,22 @@ export class EditViewComponent implements OnInit {
             this.lat = place.geometry.location.lat();
             this.lng = place.geometry.location.lng();
             this.zoom = 13;
-            this.videoPost.location = place.formatted_address;
+            this.videoPost.locationName = place.formatted_address;
+            this.videoPost.locationLatitudeLongitude = this.lat + ',' + this.lng;
           }
         });
       });
     });
+  }
+
+  saveVideoPost() {
+    this.apiService.editVideoPost(this.videoPost).subscribe(
+      (response: Response) => {
+        if (response.status === 200) {
+        }
+      },
+      (error) => console.error(error)
+    );
   }
 
 }

@@ -59,7 +59,12 @@ export  class ApiService {
     const headers = new Headers();
     headers.append('Authorization', window.localStorage.token);
     const opts: RequestOptionsArgs = { headers: headers };
-    console.log(opts);
     return this.http.post('http://localhost:8080/api/admin/video/' + id + '/' + isPublished, '', opts);
+  }
+  editVideoPost(videoPost: VideoPost) {
+    const headers = new Headers();
+    headers.append('Authorization', window.localStorage.token);
+    const opts: RequestOptionsArgs = { headers: headers };
+    return this.http.post('http://localhost:8080/api/videos/' + videoPost.id + '/' + 'edit', videoPost, opts);
   }
 }

@@ -24,9 +24,9 @@ export class VideoListComponent implements OnInit, OnChanges {
       this.apiService.getVideoPosts().subscribe(
         (response: Response) => {
           this.videoPosts = [];
+          console.log('reading video list from api');
           const data = response.json();
           for (const post of data){
-            console.log('reading video list from api');
             this.videoPosts.push(this.apiService.getVideoPostModelFromJson(post));
           }
         },

@@ -1,11 +1,11 @@
 <div class="container">
   <article class="post-entry" *ngIf="videoPost">
   <header>
-    <h1>{{videoPost.title}}</h1>
+    <h1>{{videoPost.videoTitle}}</h1>
     <p>
       <i class="fa fa-calendar"></i> Recorded: {{videoPost.recordingDate | date:'medium'}}
       <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{videoPost.user}}</a>
-      <i class="fa fa-map-marker"></i> {{videoPost.location}}
+      <i class="fa fa-map-marker"></i> {{videoPost.locationName}}
     </p>
   </header>
   <div class="row">
@@ -23,7 +23,7 @@
     <div *ngIf="authError" class="alert alert-danger" role="alert">Please <a href="login">log in</a> to perform this action</div>
   </div>
     <div class="row">
-      <p>{{videoPost.description}}</p>
+      <pre>{{videoPost.description}}</pre>
     </div>
   </article>
 </div>
