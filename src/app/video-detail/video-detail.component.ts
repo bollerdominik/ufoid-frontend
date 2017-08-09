@@ -5,6 +5,7 @@ import {ApiService} from "../shared/api.service";
 import {Response} from "@angular/http";
 import {ActivatedRoute, Params} from "@angular/router";
 import {AuthService} from "../shared/auth.service";
+import {DataService} from "../shared/data.service";
 
 @Component({
   selector: 'app-video-detail',
@@ -16,7 +17,7 @@ export class VideoDetailComponent implements OnInit {
   private authError = false;
 
   constructor(private videoPostService: VideoPostService, private apiService: ApiService, private authService: AuthService,
-              private route: ActivatedRoute) {
+              private dataService: DataService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -25,7 +26,7 @@ export class VideoDetailComponent implements OnInit {
       this.route.params.subscribe((params: Params) =>
         this.apiService.getVideoDetail(+params["id"]).subscribe(
           (response: Response) => {
-            this.videoPost = this.apiService.getVideoPostModelFromJson(response.json());
+            this.videoPost = this.dataService.getVideoPostModelFromJson(response.json());
           },
           (error) => console.error(error)
         ));

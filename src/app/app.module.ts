@@ -20,6 +20,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AdminComponent } from './admin/admin.component';
 import { VideoCardComponent } from './video-list/video-card/video-card.component';
 import { EditViewComponent } from './video-detail/edit-view/edit-view.component';
+import {DataService} from "./shared/data.service";
 
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
@@ -58,7 +59,7 @@ const appRoutes: Routes = [
       libraries: ['places']
     })
   ],
-  providers: [VideoPostService, ApiService, AuthService],
+  providers: [VideoPostService, ApiService, AuthService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

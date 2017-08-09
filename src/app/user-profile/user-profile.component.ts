@@ -3,6 +3,7 @@ import {Params, ActivatedRoute} from "@angular/router";
 import {ApiService} from "../shared/api.service";
 import 'rxjs/Rx';
 import {VideoPost} from "../video-list/video-post.model";
+import {DataService} from "../shared/data.service";
 
 @Component({
   selector: 'app-user-profile',
@@ -15,7 +16,7 @@ export class UserProfileComponent implements OnInit {
   private reputation: number;
   private videoPosts: VideoPost[] = [];
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) {
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private dataService: DataService) {
   }
 
   ngOnInit() {
@@ -25,7 +26,7 @@ export class UserProfileComponent implements OnInit {
           this.username = data.username;
           this.reputation = 1222;
           for (const post of data.videoPosts){
-            this.videoPosts.push(this.apiService.getVideoPostModelFromJson(post));
+            this.videoPosts.push(this.dataService.getVideoPostModelFromJson(post));
           }
         }
     },

@@ -4,6 +4,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {Response} from "@angular/http";
 import {VideoPost} from "../../video-list/video-post.model";
 import {MapsAPILoader} from "@agm/core";
+import {DataService} from "../../shared/data.service";
 declare var google: any;
 
 @Component({
@@ -17,14 +18,20 @@ export class EditViewComponent implements OnInit {
   private lng: number;
   private zoom: number = 2;
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute, private loader: MapsAPILoader,
+  constructor(private apiService: ApiService, private dataService: DataService, private route: ActivatedRoute, private loader: MapsAPILoader,
               private zone: NgZone) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) =>
       this.apiService.getVideoDetail(+params["id"]).subscribe(
         (response: Response) => {
-          this.videoPost = this.apiService.getVideoPostModelFromJson(response.json());
+          this.videoPost = this.dataService.getVideoPostModelFromJson(response.json());
+          if (this.videoPost.locationLatitudeLongitude) {
+            const location = this.videoPost.locationLatitudeLongitude.split(',');
+            this.lat = Number(location[0]);
+            this.lng = Number(location[1]);
+            this.zoom = 13;
+          }
         },
         (error) => console.error(error)
       ));
