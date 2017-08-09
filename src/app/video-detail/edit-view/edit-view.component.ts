@@ -17,6 +17,8 @@ export class EditViewComponent implements OnInit {
   private lat: number;
   private lng: number;
   private zoom: number = 2;
+  private videoWasSaved: boolean = false;
+  private videoErrorSaving: boolean = false;
 
   constructor(private apiService: ApiService, private dataService: DataService, private route: ActivatedRoute, private loader: MapsAPILoader,
               private zone: NgZone) { }
@@ -60,9 +62,10 @@ export class EditViewComponent implements OnInit {
     this.apiService.editVideoPost(this.videoPost).subscribe(
       (response: Response) => {
         if (response.status === 200) {
+          this.videoWasSaved = true;
         }
       },
-      (error) => console.error(error)
+      (error) => this.videoErrorSaving = true
     );
   }
 
