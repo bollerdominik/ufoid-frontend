@@ -1,30 +1,43 @@
 <div class="container">
   <article class="post-entry" *ngIf="videoPost">
-  <header>
-    <h1>{{videoPost.videoTitle}}</h1>
-    <p>
-      <i class="fa fa-calendar"></i> Recorded: {{videoPost.recordingDate | date:'medium'}}
-      <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{videoPost.user}}</a>
-      <i class="fa fa-map-marker"></i> {{videoPost.locationName}}
-    </p>
-  </header>
-  <div class="row">
-    <video controls loop controlsList="nodownload" poster="http://localhost:8080/api/files/{{videoPost.id}}/thumbs.jpg">
-      <source src="http://localhost:8080/api/files/{{videoPost.id}}/video.mp4" type="video/mp4" />
-      Browser not supported
-    </video>
-  </div>
-  <div class="row">
-    <button (click)="onClickDownloadButton()" id="download" class="btn btn-primary btn-info float-xs-right">
-      <i class="fa fa-download"></i>
-      Download original video file</button>
-  </div>
-  <div class="row">
-    <div *ngIf="authError" class="alert alert-danger" role="alert">Please <a href="login">log in</a> to perform this action</div>
-  </div>
+    <header>
+      <h1>{{videoPost.videoTitle}}</h1>
+      <p>
+        <i class="fa fa-calendar"></i> Recorded: {{videoPost.recordingDate | date:'medium'}}
+        <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{videoPost.user}}</a>
+        <i class="fa fa-map-marker"></i> {{videoPost.locationName}}
+      </p>
+    </header>
+    <div class="row">
+      <video controls loop controlsList="nodownload" poster="http://localhost:8080/api/files/{{videoPost.id}}/thumbs.jpg">
+        <source src="http://localhost:8080/api/files/{{videoPost.id}}/video.mp4" type="video/mp4" />
+        Browser not supported
+      </video>
+    </div>
+    <div class="row">
+      <button (click)="onClickDownloadButton()" id="download" class="btn btn-primary btn-info float-xs-right">
+        <i class="fa fa-download"></i>
+        Download original video file</button>
+    </div>
+    <div class="row">
+      <div *ngIf="authError" class="alert alert-danger" role="alert">Please <a href="login">log in</a> to perform this action</div>
+    </div>
     <div class="row">
       <pre>{{videoPost.description}}</pre>
     </div>
+    <div class="form-group row">
+      <div class="col">
+        <label for="exampleTextarea">Does this video show a UFO?</label>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-outline-success">Yes</button>
+        <button type="button" class="btn btn-outline-danger">No</button>
+      </div>
+      <textarea class="form-control" id="exampleTextarea" rows="4" placeholder="What is your opinion about the video?"></textarea>
+      <button type="submit" class="btn btn-primary">Add your opinion...</button>
+    </div>
+    <h3 class="text-center"><i class="fa fa-comments-o"></i> Opinions</h3>
+
   </article>
 </div>
 
