@@ -38,16 +38,14 @@
     </div>
     <h3 class="text-center"><i class="fa fa-comments-o"></i> Opinions</h3>
 
-    <div class="row">
-      <div class="col-xs-3 margin-top-10"><span class="commenting pull-right btn btn-lg btn-success">Yes</span></div>
+    <div class="container">
       <div class="progress margin-top-20 col-xs-6 no-padding-left no-padding">
-        <div class="progress-bar progress-bar-success progress-yes" role="progressbar" style="width: 44.4%;">44.4%</div>
-        <div class="progress-bar progress-bar-danger progress-no" role="progressbar" style="width: 55.6%;">55.6%</div>
+        <span class="commenting btn btn-lg btn-success">Yes</span>
+        <div class="bg-success text-white progress-bar" style="width: 44.4%;">44.4%</div>
+        <div class="bg-danger text-white progress-bar" style="width: 55.6%;">55.6%</div>
+        <span class="commenting btn btn-lg btn-danger">No</span>
       </div>
-      <div class="col-xs-3 margin-top-10"><span class="commenting btn btn-lg btn-danger">No</span></div>
     </div>
-
-
 
     <div class="row" *ngFor="let opinion of opinions">
       <div class="container">

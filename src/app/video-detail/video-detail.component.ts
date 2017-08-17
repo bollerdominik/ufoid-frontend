@@ -53,9 +53,6 @@ export class VideoDetailComponent implements OnInit {
     if (this.videoPost) {
       this.apiService.getOpinonsForVideo(this.videoPost.id).subscribe((data => {
           this.opinions = data;
-          console.log(this.opinionState[this.opinions[0].opinionState]);
-          console.log(this.opinionState.YES)
-          console.log(this.opinions[0].opinionState.valueOf() === OpinionState.YES);
       }
       ));
     }
