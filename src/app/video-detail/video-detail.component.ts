@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import {VideoPostService} from "../shared/video-post.service";
-import {VideoPost} from "../video-list/video-post.model";
+import {VideoPost} from "../domain-model/video-post.model";
 import {ApiService} from "../shared/api.service";
 import {Response} from "@angular/http";
 import {ActivatedRoute, Params} from "@angular/router";
 import {AuthService} from "../shared/auth.service";
 import {DataService} from "../shared/data.service";
+import {Opinion, OpinionState} from "../domain-model/opinion.model";
 
 @Component({
   selector: 'app-video-detail',
@@ -15,6 +16,17 @@ import {DataService} from "../shared/data.service";
 export class VideoDetailComponent implements OnInit {
   private videoPost: VideoPost;
   private authError = false;
+  private opinions: Opinion[];
+  public opinionState = OpinionState;
+
+  private DURATION_IN_SECONDS = {
+    epochs: ['year', 'month', 'day', 'hour', 'minute'],
+    year: 31536000,
+    month: 2592000,
+    day: 86400,
+    hour: 3600,
+    minute: 60
+  };
 
   constructor(private videoPostService: VideoPostService, private apiService: ApiService, private authService: AuthService,
               private dataService: DataService, private route: ActivatedRoute) {
@@ -27,12 +39,25 @@ export class VideoDetailComponent implements OnInit {
         this.apiService.getVideoDetail(+params["id"]).subscribe(
           (response: Response) => {
             this.videoPost = this.dataService.getVideoPostModelFromJson(response.json());
+            this.getOpinions();
           },
           (error) => console.error(error)
         ));
     } else {
-      console.log(this.videoPostService.videoPost);
       this.videoPost = this.videoPostService.videoPost;
+      this.getOpinions();
+    }
+  }
+
+  getOpinions() {
+    if (this.videoPost) {
+      this.apiService.getOpinonsForVideo(this.videoPost.id).subscribe((data => {
+          this.opinions = data;
+          console.log(this.opinionState[this.opinions[0].opinionState]);
+          console.log(this.opinionState.YES)
+          console.log(this.opinions[0].opinionState.valueOf() === OpinionState.YES);
+      }
+      ));
     }
   }
 
@@ -53,6 +78,29 @@ export class VideoDetailComponent implements OnInit {
         }
       }
     );
+  }
+
+  getDuration(seconds) {
+    var epoch, interval;
+
+    for (var i = 0; i < this.DURATION_IN_SECONDS.epochs.length; i++) {
+      epoch = this.DURATION_IN_SECONDS.epochs[i];
+      interval = Math.floor(seconds / this.DURATION_IN_SECONDS[epoch]);
+      if (interval >= 1) {
+        return [
+          interval,
+          epoch
+        ];
+      }
+    }
+
+  }
+
+  timeSince(date: Date): string{
+    var seconds = Math.floor((Number(new Date()) - Number(date)) / 1000);
+    var duration = this.getDuration(seconds);
+    var suffix = (duration[0] > 1 || duration[0] === 0) ? 's' : '';
+    return duration[0] + ' ' + duration[1] + suffix;
   }
 
 }

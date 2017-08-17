@@ -3,7 +3,7 @@ import {AuthService} from "../shared/auth.service";
 import {Response} from "@angular/http";
 import {Router} from "@angular/router";
 import 'rxjs/add/operator/catch';
-import {VideoPost} from "../video-list/video-post.model";
+import {VideoPost} from "../domain-model/video-post.model";
 import {ApiService} from "../shared/api.service";
 
 @Component({

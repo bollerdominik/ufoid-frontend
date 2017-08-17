@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {VideoPost} from "../video-post.model";
+import {VideoPost} from "../../domain-model/video-post.model";
 import {VideoPostService} from "../../shared/video-post.service";
 
 @Component({

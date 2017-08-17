@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Params, ActivatedRoute} from "@angular/router";
 import {ApiService} from "../shared/api.service";
 import 'rxjs/Rx';
-import {VideoPost} from "../video-list/video-post.model";
+import {VideoPost} from "../domain-model/video-post.model";
 import {DataService} from "../shared/data.service";
 
 @Component({

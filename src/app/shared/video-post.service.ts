@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {VideoPost} from "../video-list/video-post.model";
+import {VideoPost} from "../domain-model/video-post.model";
 /**
  * Created by dubsta on 31.05.2017.
  */

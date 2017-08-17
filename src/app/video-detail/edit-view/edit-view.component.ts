@@ -2,7 +2,7 @@ import {Component, NgZone, OnInit} from '@angular/core';
 import {ApiService} from "../../shared/api.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {Response} from "@angular/http";
-import {VideoPost} from "../../video-list/video-post.model";
+import {VideoPost} from "../../domain-model/video-post.model";
 import {MapsAPILoader} from "@agm/core";
 import {DataService} from "../../shared/data.service";
 import {Location} from '@angular/common';

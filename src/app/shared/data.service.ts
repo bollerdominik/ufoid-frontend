@@ -1,7 +1,8 @@
 /**
  * Created by dubsta on 06.06.2017.
  */
-import {VideoPost} from "../video-list/video-post.model";
+import {VideoPost} from "../domain-model/video-post.model";
+import {Opinion} from "../domain-model/opinion.model";
 
 export const videoStorageFolder = "storage";
 export const videoPreFix = "Capture--";
@@ -21,6 +22,9 @@ export  class DataService {
       data.id, data.videoTitle, data.uploaderName, data.locationName, data.numberOfComments, new Date(data.recordingDate), new Date(data.uploadDate), data.description,
       data.locationLatitudeLongitude,
       data.isPublished, data.downloadCounter);
+  }
+  getOpinionFromJson(data): Opinion {
+    return new Opinion(data.id, data.text, data.opinionState, data.username, data.date);
   }
 
 }
