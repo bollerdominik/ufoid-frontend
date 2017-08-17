@@ -54,8 +54,8 @@
     <div class="container">
       <div class="progress margin-top-20 col-xs-6 no-padding-left no-padding">
         <span class="commenting btn btn-lg btn-success">Yes</span>
-        <div class="bg-success text-white progress-bar" style="width: 44.4%;">44.4%</div>
-        <div class="bg-danger text-white progress-bar" style="width: 55.6%;">55.6%</div>
+        <div class="bg-success text-white progress-bar" [ngStyle]="{'width': progressBarWidth.yes + '%'}">{{progressBarWidth.yes | number:'1.2-2'}}%</div>
+        <div class="bg-danger text-white progress-bar" [ngStyle]="{'width': progressBarWidth.no + '%'}">{{progressBarWidth.no | number:'1.2-2'}}%</div>
         <span class="commenting btn btn-lg btn-danger">No</span>
       </div>
     </div>

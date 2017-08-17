@@ -8,6 +8,7 @@ import {AuthService} from "../shared/auth.service";
 import {DataService} from "../shared/data.service";
 import {Opinion, OpinionState} from "../domain-model/opinion.model";
 import 'rxjs/add/operator/catch';
+import {count} from "rxjs/operator/count";
 
 @Component({
   selector: 'app-video-detail',
@@ -26,6 +27,11 @@ export class VideoDetailComponent implements OnInit {
   private errorSavingOpinion: boolean = false;
   private errorSavingOpinionText: string;
   private errorSavingOpinionNotLoggedIn: boolean = false;
+
+  private progressBarWidth = {
+    yes: 50,
+    no: 50
+  };
 
   private DURATION_IN_SECONDS = {
     epochs: ['year', 'month', 'day', 'hour', 'minute'],
@@ -61,9 +67,27 @@ export class VideoDetailComponent implements OnInit {
     if (this.videoPost) {
       this.apiService.getOpinonsForVideo(this.videoPost.id).subscribe((data => {
           this.opinions = data;
+          this.calculateProgressBar();
       }
       ));
     }
+  }
+
+  calculateProgressBar() {
+    let countYes: number = 0;
+    let countNo: number = 0;
+    for (const opinion of this.opinions) {
+      if (opinion.opinionState.toString() === OpinionState[OpinionState.YES]) {
+        countYes++;
+      } else if (opinion.opinionState.toString() === OpinionState[OpinionState.NO]) {
+        countNo++;
+      }
+    }
+    this.progressBarWidth.yes = (countYes / (countYes + countNo)) * 100;
+    this.progressBarWidth.no = 100 - this.progressBarWidth.yes;
+    console.log(this.progressBarWidth);
+
+
   }
 
   addOpinion() {
