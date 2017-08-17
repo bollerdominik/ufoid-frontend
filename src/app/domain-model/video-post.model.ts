@@ -4,7 +4,6 @@ export class VideoPost {
   public videoTitle: string;
   public user: string;
   public locationName: string;
-  public numberOfComments: number;
   public link: string;
   public recordingDate: Date;
   public uploadDate: Date
@@ -12,19 +11,21 @@ export class VideoPost {
   public downloadCounter: number;
   public description: string;
   public locationLatitudeLongitude: string;
+  public numberOfOpinions: number;
 
-  constructor(id: number, videoTitle: string, user: string, locationName: string, numberOfComments: number, recordingDate: Date, uploadDate: Date, description: string, locationLatitudeLongitude: string,
+  constructor(id: number, videoTitle: string, user: string, locationName: string, recordingDate: Date, uploadDate: Date,
+              description: string, locationLatitudeLongitude: string, numberOfOpinions: number,
               isPublished?: boolean, downloadCounter?: number) {
     this.id = id;
     this.videoTitle = videoTitle;
     this.user = user;
     this.locationName = locationName;
-    this.numberOfComments = numberOfComments;
     this.link = this.videoTitle.replace(new RegExp(' ', 'g'), '-');
     this.recordingDate = recordingDate;
     this.uploadDate = uploadDate;
     this.description = description;
     this.locationLatitudeLongitude = locationLatitudeLongitude;
+    this.numberOfOpinions = numberOfOpinions;
     this.isPublished = isPublished;
     this.downloadCounter = downloadCounter;
   }
