@@ -7,6 +7,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {AuthService} from "../shared/auth.service";
 import {DataService} from "../shared/data.service";
 import {Opinion, OpinionState} from "../domain-model/opinion.model";
+import 'rxjs/add/operator/catch';
 
 @Component({
   selector: 'app-video-detail',
@@ -18,6 +19,13 @@ export class VideoDetailComponent implements OnInit {
   private authError = false;
   private opinions: Opinion[];
   public opinionState = OpinionState;
+  private newOpinionText: string;
+  private isYesPressed: boolean = false;
+  private isNoPressed: boolean = false;
+  private successSavingOpinion: boolean = false;
+  private errorSavingOpinion: boolean = false;
+  private errorSavingOpinionText: string;
+  private errorSavingOpinionNotLoggedIn: boolean = false;
 
   private DURATION_IN_SECONDS = {
     epochs: ['year', 'month', 'day', 'hour', 'minute'],
@@ -58,6 +66,51 @@ export class VideoDetailComponent implements OnInit {
     }
   }
 
+  addOpinion() {
+    this.errorSavingOpinion = false;
+    this.errorSavingOpinionNotLoggedIn = false;
+    this.successSavingOpinion = false;
+    if (!this.isNoPressed && !this.isYesPressed) {
+      this.errorSavingOpinion = true;
+      this.errorSavingOpinionText = 'Please check one of the opinion options';
+      return;
+    }
+
+    if (!this.newOpinionText || this.newOpinionText.length < 5) {
+      this.errorSavingOpinion = true;
+      this.errorSavingOpinionText = 'Please add a comment to your opinion';
+      return;
+    }
+
+    if (!window.localStorage.token) {
+      this.errorSavingOpinionNotLoggedIn = true;
+      return;
+    }
+
+    const opinion: Opinion = new Opinion(0, this.newOpinionText, this.isYesPressed ? OpinionState.YES : OpinionState.NO, "", null);
+    this.apiService.addOpinion(this.videoPost.id, opinion).subscribe((response: Response) => {
+      if (response.status === 200) {
+        this.errorSavingOpinion = false;
+        this.successSavingOpinion = true;
+        this.getOpinions();
+      }
+    },
+      err => {
+        this.errorSavingOpinion = true;
+        this.errorSavingOpinionText = 'Error ' + err.status + ' saving the opinion. Please contact admin';
+      });
+  }
+
+  onYesButtonClicked() {
+    this.isYesPressed = true;
+    this.isNoPressed = false;
+  }
+
+  onNoButtonClicked() {
+    this.isYesPressed = false;
+    this.isNoPressed = true;
+  }
+
   onClickDownloadButton() {
     if (!window.localStorage.token) {
       this.authError = true;
@@ -90,10 +143,13 @@ export class VideoDetailComponent implements OnInit {
         ];
       }
     }
-
+    return [
+      'just a',
+      'moment'
+    ];
   }
 
-  timeSince(date: Date): string{
+  timeSince(date: Date): string {
     var seconds = Math.floor((Number(new Date()) - Number(date)) / 1000);
     var duration = this.getDuration(seconds);
     var suffix = (duration[0] > 1 || duration[0] === 0) ? 's' : '';

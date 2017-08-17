@@ -58,6 +58,9 @@ export  class ApiService {
       return opinions;
     });
   }
+  addOpinion(videopostId: number, opinion: Opinion) {
+    return this.http.post('http://localhost:8080/api/videos/' + videopostId + '/' + 'opinion', opinion, this.getAuthHeader());
+  }
   getAuthHeader(): RequestOptionsArgs {
     const headers = new Headers();
     headers.append('Authorization', window.localStorage.token);

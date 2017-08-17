@@ -29,12 +29,25 @@
       <div class="col">
         <label for="exampleTextarea">Does this video show a UFO?</label>
       </div>
-      <div class="col">
-        <button type="button" class="btn btn-outline-success">Yes</button>
-        <button type="button" class="btn btn-outline-danger">No</button>
+      <div class="btn-group" data-toggle="buttons">
+        <label [ngClass]="{'btn': true, 'btn-outline-success': true, 'active': isYesPressed}">
+          <input type="radio" name="options" id="option1" autocomplete="off" (click)="onYesButtonClicked()">Yes
+        </label>
+        <label [ngClass]="{'btn': true, 'btn-outline-danger': true, 'active': isNoPressed}">
+          <input type="radio" name="options" id="option2" autocomplete="off" (click)="onNoButtonClicked()">No
+        </label>
       </div>
-      <textarea class="form-control" id="exampleTextarea" rows="4" placeholder="What is your opinion about the video?"></textarea>
-      <button type="submit" class="btn btn-primary">Add your opinion...</button>
+      <textarea class="form-control" id="exampleTextarea" rows="4" placeholder="What is your opinion about the video?" [(ngModel)]="newOpinionText"></textarea>
+      <button type="submit" class="btn btn-primary" (click)="addOpinion()">Add your opinion...</button>
+    </div>
+    <div class="row">
+      <div *ngIf="errorSavingOpinion" class="alert alert-danger" role="alert">{{errorSavingOpinionText}}</div>
+    </div>
+    <div class="row">
+      <div *ngIf="errorSavingOpinionNotLoggedIn" class="alert alert-danger" role="alert">Please <a href="login">log in</a> or <a href="signup">register</a> to perform this action</div>
+    </div>
+    <div class="row">
+      <div *ngIf="successSavingOpinion" class="alert alert-success" role="alert">Successfully added your opinion to the video</div>
     </div>
     <h3 class="text-center"><i class="fa fa-comments-o"></i> Opinions</h3>
 
