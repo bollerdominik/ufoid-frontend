@@ -14,13 +14,13 @@ export  class DataService {
   getVideoPostModelFromJson(data): VideoPost {
     return new VideoPost(
       data.id, data.videoTitle, data.uploaderName, data.locationName, new Date(data.recordingDate), new Date(data.uploadDate), data.description,
-      data.locationLatitudeLongitude, data.numberOfOpinions);
+      data.locationLatitudeLongitude, data.numberOfOpinions, data.yesOpinionPercentage);
   }
 
   getAdminVideoPostModelFromJson(data): VideoPost {
     return new VideoPost(
       data.id, data.videoTitle, data.uploaderName, data.locationName, new Date(data.recordingDate), new Date(data.uploadDate), data.description,
-      data.locationLatitudeLongitude, data.numberOfOpinions,
+      data.locationLatitudeLongitude, data.numberOfOpinions, data.yesOpinionPercentage,
       data.isPublished, data.downloadCounter);
   }
   getOpinionFromJson(data): Opinion {

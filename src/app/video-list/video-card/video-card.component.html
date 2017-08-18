@@ -5,6 +5,15 @@
       <h5 class="card-title">{{videoPost.videoTitle}}</h5>
       <ul class="list-group">
         <li class="list-group-item">
+          <i class="fa fa-question-circle-o"></i>
+          <div class="container">
+            <div class="progress">
+              <div class="bg-success text-white progress-bar" [ngStyle]="{'width': videoPost.yesOpinionPercentage + '%'}">{{videoPost.yesOpinionPercentage}}%</div>
+              <div class="bg-danger text-white progress-bar" [ngStyle]="{'width': 100-videoPost.yesOpinionPercentage + '%'}">{{100-videoPost.yesOpinionPercentage}}%</div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
               <span>
                 <i class="fa fa-map-marker"></i>
                 {{videoPost.locationName}}

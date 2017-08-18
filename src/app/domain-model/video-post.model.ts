@@ -12,9 +12,10 @@ export class VideoPost {
   public description: string;
   public locationLatitudeLongitude: string;
   public numberOfOpinions: number;
+  public yesOpinionPercentage: number;
 
   constructor(id: number, videoTitle: string, user: string, locationName: string, recordingDate: Date, uploadDate: Date,
-              description: string, locationLatitudeLongitude: string, numberOfOpinions: number,
+              description: string, locationLatitudeLongitude: string, numberOfOpinions: number, yesOpinionPercentage: number,
               isPublished?: boolean, downloadCounter?: number) {
     this.id = id;
     this.videoTitle = videoTitle;
@@ -26,6 +27,7 @@ export class VideoPost {
     this.description = description;
     this.locationLatitudeLongitude = locationLatitudeLongitude;
     this.numberOfOpinions = numberOfOpinions;
+    this.yesOpinionPercentage = yesOpinionPercentage;
     this.isPublished = isPublished;
     this.downloadCounter = downloadCounter;
   }

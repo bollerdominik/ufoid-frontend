@@ -67,7 +67,12 @@ export class VideoDetailComponent implements OnInit {
     if (this.videoPost) {
       this.apiService.getOpinonsForVideo(this.videoPost.id).subscribe((data => {
           this.opinions = data;
-          this.calculateProgressBar();
+          if (this.opinions.length === 0) {
+            this.progressBarWidth.yes = 50;
+            this.progressBarWidth.no = 50;
+          } else {
+            this.calculateProgressBar();
+          }
       }
       ));
     }
