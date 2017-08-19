@@ -7,7 +7,7 @@ import {VideoPost} from "../domain-model/video-post.model";
 import {AuthService} from "./auth.service";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/Rx';
-import {DataService} from "./data.service";
+import {DataService, SIZE_PER_PAGE} from "./data.service";
 import {Opinion} from "../domain-model/opinion.model";
 
 
@@ -15,8 +15,8 @@ import {Opinion} from "../domain-model/opinion.model";
 export  class ApiService {
   constructor(private http: Http, private authService: AuthService, private dataService: DataService) {}
 
-  getVideoPosts() {
-    return this.http.get('http://localhost:8080/api/videos');
+  getVideoPosts(page: number) {
+    return this.http.get('http://localhost:8080/api/videos?page=' + (page - 1) + '&size=' + SIZE_PER_PAGE);
   }
   getVideoDetail(id: number) {
     return this.http.get('http://localhost:8080/api/videos/' + id);
@@ -48,7 +48,7 @@ export  class ApiService {
   editVideoPost(videoPost: VideoPost) {
     return this.http.post('http://localhost:8080/api/videos/' + videoPost.id + '/' + 'edit', videoPost, this.getAuthHeader());
   }
-  getOpinonsForVideo(id: number): Observable<Opinion[]> {
+  getOpinionsForVideo(id: number): Observable<Opinion[]> {
     return this.http.get('http://localhost:8080/api/videos/' + id + '/' + 'opinion').map((response: Response) => {
       const data = response.json();
       const opinions: Opinion[] = [];

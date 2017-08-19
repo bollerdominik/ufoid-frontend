@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from '@agm/core';
@@ -21,6 +21,7 @@ import { AdminComponent } from './admin/admin.component';
 import { VideoCardComponent } from './video-list/video-card/video-card.component';
 import { EditViewComponent } from './video-detail/edit-view/edit-view.component';
 import {DataService} from "./shared/data.service";
+import {DemoNumber} from "app/custompipes";
 
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     UserProfileComponent,
     AdminComponent,
     VideoCardComponent,
-    EditViewComponent
+    EditViewComponent,
+    DemoNumber
   ],
   imports: [
     BrowserModule,

@@ -47,6 +47,7 @@ export class VideoDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+
     if (!this.videoPostService.videoPost) {
       console.log("load data from api");
       this.route.params.subscribe((params: Params) =>
@@ -65,7 +66,7 @@ export class VideoDetailComponent implements OnInit {
 
   getOpinions() {
     if (this.videoPost) {
-      this.apiService.getOpinonsForVideo(this.videoPost.id).subscribe((data => {
+      this.apiService.getOpinionsForVideo(this.videoPost.id).subscribe((data => {
           this.opinions = data;
           if (this.opinions.length === 0) {
             this.progressBarWidth.yes = 50;

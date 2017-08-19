@@ -8,8 +8,10 @@ export const videoStorageFolder = "storage";
 export const videoPreFix = "Capture--";
 export const videoExtension = ".avi";
 export const webVideoName = "video.mp4";
+export const SIZE_PER_PAGE = 2;
 
 export  class DataService {
+  public pagesCount: number;
 
   getVideoPostModelFromJson(data): VideoPost {
     return new VideoPost(
@@ -25,6 +27,14 @@ export  class DataService {
   }
   getOpinionFromJson(data): Opinion {
     return new Opinion(data.id, data.text, data.opinionState, data.username, data.date);
+  }
+  getCountOfPages(value: number): number {
+    let countOfPages: number = value / SIZE_PER_PAGE;
+    if (value % SIZE_PER_PAGE > 0) {
+      countOfPages++;
+    }
+    this.pagesCount = countOfPages;
+    return countOfPages;
   }
 
 }

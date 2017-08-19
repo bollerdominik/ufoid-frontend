@@ -2,4 +2,25 @@
   <div class="card-columns">
     <app-video-card *ngFor="let videopost of videoPosts" [videoPost]="videopost"></app-video-card>
   </div>
+  <nav>
+    <ul class="pagination" *ngIf="videoPosts.length > 0">
+      <li [ngClass]="{'page-item': true, 'disabled': currentPage == 1 ? true : false}">
+        <a [routerLink]=""
+           [queryParams]="{page: convertToInt(currentPage) - convertToInt(1)}"
+           class="page-link" href="#">Previous</a>
+      </li>
+      <li [ngClass]="{'page-item': true, 'active': currentPage == key || (!currentPage && key == 1) ? true : false}" *ngFor='let key of totalVideoPosts | demoNumber'>
+        <a [routerLink]=""
+           [queryParams]="{page: key}"
+           class="page-link" href="#">
+          {{key}}
+        </a>
+      </li>
+      <li [ngClass]="{'page-item': true, 'disabled': currentPage == dataService.pagesCount ? true : false}">
+        <a [routerLink]=""
+           [queryParams]="{page: convertToInt(currentPage) + convertToInt(1)}"
+           class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
 </div>
