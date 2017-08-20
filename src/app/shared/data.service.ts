@@ -8,7 +8,7 @@ export const videoStorageFolder = "storage";
 export const videoPreFix = "Capture--";
 export const videoExtension = ".avi";
 export const webVideoName = "video.mp4";
-export const SIZE_PER_PAGE = 2;
+export const SIZE_PER_PAGE = 1;
 
 export  class DataService {
   public pagesCount: number;
@@ -30,6 +30,7 @@ export  class DataService {
   }
   getCountOfPages(value: number): number {
     let countOfPages: number = value / SIZE_PER_PAGE;
+    countOfPages = Math.floor(countOfPages);
     if (value % SIZE_PER_PAGE > 0) {
       countOfPages++;
     }

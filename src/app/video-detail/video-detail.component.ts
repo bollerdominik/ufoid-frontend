@@ -91,9 +91,6 @@ export class VideoDetailComponent implements OnInit {
     }
     this.progressBarWidth.yes = (countYes / (countYes + countNo)) * 100;
     this.progressBarWidth.no = 100 - this.progressBarWidth.yes;
-    console.log(this.progressBarWidth);
-
-
   }
 
   addOpinion() {

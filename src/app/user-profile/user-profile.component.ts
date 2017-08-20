@@ -14,7 +14,7 @@ export class UserProfileComponent implements OnInit {
 
   private username: string;
   private reputation: number;
-  private videoPosts: VideoPost[] = [];
+  private videoPosts: VideoPost[];
 
   constructor(private route: ActivatedRoute, private apiService: ApiService, private dataService: DataService) {
   }
@@ -25,6 +25,7 @@ export class UserProfileComponent implements OnInit {
         if (data) {
           this.username = data.username;
           this.reputation = 1222;
+          this.videoPosts = [];
           for (const post of data.videoPosts){
             this.videoPosts.push(this.dataService.getVideoPostModelFromJson(post));
           }
