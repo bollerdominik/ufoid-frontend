@@ -48,14 +48,18 @@ export  class ApiService {
   editVideoPost(videoPost: VideoPost) {
     return this.http.post('http://localhost:8080/api/videos/' + videoPost.id + '/' + 'edit', videoPost, this.getAuthHeader());
   }
-  getOpinionsForVideo(id: number): Observable<Opinion[]> {
+  getOpinionsForVideo(id: number): Observable<any> {
     return this.http.get('http://localhost:8080/api/videos/' + id + '/' + 'opinion').map((response: Response) => {
-      const data = response.json();
+      const json = response.json();
+      const data = json.opinionList;
       const opinions: Opinion[] = [];
       for (const post of data){
         opinions.push(this.dataService.getOpinionFromJson(post));
       }
-      return opinions;
+      return {
+        reputation: json.reputation,
+        opinions: opinions
+      };
     });
   }
   addOpinion(videopostId: number, opinion: Opinion) {

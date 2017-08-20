@@ -6,6 +6,7 @@
         <i class="fa fa-calendar"></i> Recorded: {{videoPost.recordingDate | date:'medium'}}
         <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{videoPost.user}}</a>
         <i class="fa fa-map-marker"></i> {{videoPost.locationName}}
+        <i class="fa fa-star"></i> {{reputation}}
       </p>
     </header>
     <div class="row">

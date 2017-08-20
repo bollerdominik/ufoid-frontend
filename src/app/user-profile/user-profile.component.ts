@@ -24,7 +24,7 @@ export class UserProfileComponent implements OnInit {
       this.apiService.getUser(params['username']).map(res => res.json()).subscribe(data => {
         if (data) {
           this.username = data.username;
-          this.reputation = 1222;
+          this.reputation = data.reputation;
           this.videoPosts = [];
           for (const post of data.videoPosts){
             this.videoPosts.push(this.dataService.getVideoPostModelFromJson(post));

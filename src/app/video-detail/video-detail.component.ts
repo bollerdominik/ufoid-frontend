@@ -27,6 +27,7 @@ export class VideoDetailComponent implements OnInit {
   private errorSavingOpinion: boolean = false;
   private errorSavingOpinionText: string;
   private errorSavingOpinionNotLoggedIn: boolean = false;
+  private reputation: number;
 
   private progressBarWidth = {
     yes: 50,
@@ -67,7 +68,8 @@ export class VideoDetailComponent implements OnInit {
   getOpinions() {
     if (this.videoPost) {
       this.apiService.getOpinionsForVideo(this.videoPost.id).subscribe((data => {
-          this.opinions = data;
+          this.reputation = data.reputation;
+          this.opinions = data.opinions;
           if (this.opinions.length === 0) {
             this.progressBarWidth.yes = 50;
             this.progressBarWidth.no = 50;
