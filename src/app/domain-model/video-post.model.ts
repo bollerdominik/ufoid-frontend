@@ -1,3 +1,5 @@
+import {VIDEO_EXTENSION, VIDEO_PREFIX} from "../shared/data.service";
+
 export class VideoPost {
 
   public id: number;
@@ -33,8 +35,8 @@ export class VideoPost {
   }
 
   getVideoFileName(): string {
-    return 'Capture--' + this.recordingDate.toISOString().slice(0, 10) + '--'
+    return VIDEO_PREFIX + this.recordingDate.toISOString().slice(0, 10) + '--'
       + this.recordingDate.toTimeString().slice(0, 8).replace(new RegExp(':', 'g'), '-')
-      + '.avi';
+      + VIDEO_EXTENSION;
   }
 }

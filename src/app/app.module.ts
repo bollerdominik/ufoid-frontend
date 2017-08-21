@@ -22,6 +22,7 @@ import { VideoCardComponent } from './video-list/video-card/video-card.component
 import { EditViewComponent } from './video-detail/edit-view/edit-view.component';
 import {DataService} from "./shared/data.service";
 import {DemoNumber} from "app/custompipes";
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
     AdminComponent,
     VideoCardComponent,
     EditViewComponent,
-    DemoNumber
+    DemoNumber,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

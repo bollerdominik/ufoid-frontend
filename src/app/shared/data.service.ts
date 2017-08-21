@@ -5,10 +5,10 @@ import {VideoPost} from "../domain-model/video-post.model";
 import {Opinion} from "../domain-model/opinion.model";
 
 export const videoStorageFolder = "storage";
-export const videoPreFix = "Capture--";
-export const videoExtension = ".avi";
-export const webVideoName = "video.mp4";
-export const SIZE_PER_PAGE = 1;
+export const VIDEO_PREFIX = "Capture--";
+export const VIDEO_EXTENSION = ".avi";
+export const WEB_VIDEO_NAME = "video.mp4";
+export const SIZE_PER_PAGE = 5;
 
 export  class DataService {
   public pagesCount: number;

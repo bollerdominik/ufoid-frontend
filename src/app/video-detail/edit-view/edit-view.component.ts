@@ -30,6 +30,9 @@ export class EditViewComponent implements OnInit {
       this.apiService.getVideoDetail(+params["id"]).subscribe(
         (response: Response) => {
           this.videoPost = this.dataService.getVideoPostModelFromJson(response.json());
+          if (!this.isUserLoggedIn()) {
+            this.cancel();
+          }
           if (this.videoPost.locationLatitudeLongitude) {
             const location = this.videoPost.locationLatitudeLongitude.split(',');
             this.lat = Number(location[0]);
@@ -40,6 +43,10 @@ export class EditViewComponent implements OnInit {
         (error) => console.error(error)
       ));
     this.autocomplete();
+  }
+
+  isUserLoggedIn(): boolean {
+    return this.videoPost.user === window.localStorage.userName;
   }
 
   autocomplete() {
