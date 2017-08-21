@@ -10,11 +10,15 @@ import {VideoPostService} from "../../shared/video-post.service";
 export class VideoCardComponent implements OnInit {
 
   @Input() videoPost: VideoPost;
+  private displayEditIcon: boolean = false;
 
   constructor(private videoPostService: VideoPostService) {
   }
 
   ngOnInit() {
+    if (window.localStorage.userName === this.videoPost.user){
+      this.displayEditIcon = true;
+    }
   }
 
   onClick(videoPost: VideoPost) {
