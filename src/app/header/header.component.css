@@ -43,8 +43,10 @@
 
 .nav-link--login {
     margin-top: 11px;
-    padding-top: 13px;
-    padding-bottom: 13px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px!important;
+    padding-right: 15px!important;
     border-top-style: solid;
     border-top-width: 2px;
     border-top-color: rgb(72, 159, 217);
@@ -75,9 +77,12 @@
 }
 
 .nav-link--register {
+    margin-left: 0px!important;
     margin-top: 11px;
-    padding-top: 13px;
-    padding-bottom: 13px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px!important;
+    padding-right: 15px!important;
     border-top-style: solid;
     border-top-width: 2px;
     border-top-color: rgb(72, 159, 217);
@@ -123,6 +128,10 @@
 
 .navbar-toggler {
     outline: none;
+}
+
+.login-wrapper .nav-item:nth-child(2) {
+    padding-right: 0px;
 }
 
 @media only screen and (max-width: 1200px) {
