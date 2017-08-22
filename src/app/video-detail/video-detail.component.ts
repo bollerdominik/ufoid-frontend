@@ -5,7 +5,7 @@ import {ApiService} from "../shared/api.service";
 import {Response} from "@angular/http";
 import {ActivatedRoute, Params} from "@angular/router";
 import {AuthService} from "../shared/auth.service";
-import {DataService} from "../shared/data.service";
+import {API_URL, DataService} from "../shared/data.service";
 import {Opinion, OpinionState} from "../domain-model/opinion.model";
 import 'rxjs/add/operator/catch';
 import {count} from "rxjs/operator/count";
@@ -28,6 +28,7 @@ export class VideoDetailComponent implements OnInit {
   private errorSavingOpinionText: string;
   private errorSavingOpinionNotLoggedIn: boolean = false;
   private reputation: number;
+  private API_URL = API_URL;
 
   private progressBarWidth = {
     yes: 50,
@@ -149,7 +150,7 @@ export class VideoDetailComponent implements OnInit {
     let hash: string;
     this.apiService.getVideoDownloadHash(this.videoPost.id).subscribe((response: Response) => {
         hash = response.text();
-        window.location.href = 'http://localhost:8080/api/files/' + this.videoPost.id + '/'
+        window.location.href = API_URL + 'files/' + this.videoPost.id + '/'
           + hash + '/' + this.videoPost.getVideoFileName();
       }, (error) => {
         if (error.status === 403) {

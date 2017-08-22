@@ -14,8 +14,8 @@
       </p>
     </header>
     <div class="row">
-      <video controls loop controlsList="nodownload" poster="http://localhost:8080/api/files/{{videoPost.id}}/thumbs.jpg">
-        <source src="http://localhost:8080/api/files/{{videoPost.id}}/video.mp4" type="video/mp4" />
+      <video controls loop controlsList="nodownload" poster="{{API_URL}}files/{{videoPost.id}}/thumbs.jpg">
+        <source src="{{API_URL}}files/{{videoPost.id}}/video.mp4" type="video/mp4" />
         Browser not supported
       </video>
     </div>

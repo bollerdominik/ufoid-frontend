@@ -7,7 +7,7 @@ import {VideoPost} from "../domain-model/video-post.model";
 import {AuthService} from "./auth.service";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/Rx';
-import {DataService, SIZE_PER_PAGE} from "./data.service";
+import {API_URL, DataService, SIZE_PER_PAGE} from "./data.service";
 import {Opinion} from "../domain-model/opinion.model";
 
 
@@ -16,19 +16,19 @@ export  class ApiService {
   constructor(private http: Http, private authService: AuthService, private dataService: DataService) {}
 
   getVideoPosts(page: number) {
-    return this.http.get('http://localhost:8080/api/videos?page=' + (page - 1) + '&size=' + SIZE_PER_PAGE);
+    return this.http.get(API_URL + 'videos?page=' + (page - 1) + '&size=' + SIZE_PER_PAGE);
   }
   getVideoDetail(id: number) {
-    return this.http.get('http://localhost:8080/api/videos/' + id);
+    return this.http.get(API_URL + 'videos/' + id);
   }
   getVideoDownloadHash(id: number) {
-    return this.http.get('http://localhost:8080/api/videos/' + id + '/download', this.getAuthHeader());
+    return this.http.get(API_URL + 'videos/' + id + '/download', this.getAuthHeader());
   }
   getUser(username: string) {
-    return this.http.get('http://localhost:8080/api/users/' + username);
+    return this.http.get(API_URL + 'users/' + username);
   }
   getAllVideosForAdmin(): Observable<VideoPost[]> {
-    return this.http.get('http://localhost:8080/api/admin/videos', this.getAuthHeader()).map((response: Response) => {
+    return this.http.get(API_URL + 'admin/videos', this.getAuthHeader()).map((response: Response) => {
       const data = response.json();
       const videoPosts = [];
       for (const post of data){
@@ -43,13 +43,13 @@ export  class ApiService {
       });
   }
   setVideoPublished(id: number, isPublished: boolean) {
-    return this.http.post('http://localhost:8080/api/admin/video/' + id + '/' + isPublished, '', this.getAuthHeader());
+    return this.http.post(API_URL + 'admin/video/' + id + '/' + isPublished, '', this.getAuthHeader());
   }
   editVideoPost(videoPost: VideoPost) {
-    return this.http.post('http://localhost:8080/api/videos/' + videoPost.id + '/' + 'edit', videoPost, this.getAuthHeader());
+    return this.http.post(API_URL + 'videos/' + videoPost.id + '/' + 'edit', videoPost, this.getAuthHeader());
   }
   getOpinionsForVideo(id: number): Observable<any> {
-    return this.http.get('http://localhost:8080/api/videos/' + id + '/' + 'opinion').map((response: Response) => {
+    return this.http.get(API_URL + 'videos/' + id + '/' + 'opinion').map((response: Response) => {
       const json = response.json();
       const data = json.opinionList;
       const opinions: Opinion[] = [];
@@ -63,7 +63,7 @@ export  class ApiService {
     });
   }
   addOpinion(videopostId: number, opinion: Opinion) {
-    return this.http.post('http://localhost:8080/api/videos/' + videopostId + '/' + 'opinion', opinion, this.getAuthHeader());
+    return this.http.post(API_URL + 'videos/' + videopostId + '/' + 'opinion', opinion, this.getAuthHeader());
   }
   getAuthHeader(): RequestOptionsArgs {
     const headers = new Headers();

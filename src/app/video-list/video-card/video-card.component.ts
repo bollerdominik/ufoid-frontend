@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {VideoPost} from "../../domain-model/video-post.model";
 import {VideoPostService} from "../../shared/video-post.service";
+import {API_URL} from "../../shared/data.service";
 
 @Component({
   selector: 'app-video-card',
@@ -11,6 +12,7 @@ export class VideoCardComponent implements OnInit {
 
   @Input() videoPost: VideoPost;
   private displayEditIcon: boolean = false;
+  private API_URL = API_URL;
 
   constructor(private videoPostService: VideoPostService) {
   }

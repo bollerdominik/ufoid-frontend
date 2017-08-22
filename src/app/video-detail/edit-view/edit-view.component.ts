@@ -4,7 +4,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {Response} from "@angular/http";
 import {VideoPost} from "../../domain-model/video-post.model";
 import {MapsAPILoader} from "@agm/core";
-import {DataService} from "../../shared/data.service";
+import {API_URL, DataService} from "../../shared/data.service";
 import {Location} from '@angular/common';
 
 declare var google: any;
@@ -21,6 +21,7 @@ export class EditViewComponent implements OnInit {
   private zoom: number = 2;
   private videoWasSaved: boolean = false;
   private videoErrorSaving: boolean = false;
+  private API_URL = API_URL;
 
   constructor(private apiService: ApiService, private dataService: DataService, private route: ActivatedRoute, private loader: MapsAPILoader,
               private zone: NgZone, private location: Location) { }

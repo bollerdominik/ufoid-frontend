@@ -1,6 +1,6 @@
 <div class="card">
   <a [routerLink]="['/ufo-videos', videoPost.id, videoPost.link]" (click)="onClick(videoPost)">
-    <img src="http://localhost:8080/api/files/{{videoPost.id}}/thumbs.jpg" class="img class=card-img-top img-fluid">
+    <img src="{{API_URL}}files/{{videoPost.id}}/thumbs.jpg" class="img class=card-img-top img-fluid">
     <div class="card-block">
       <h5 class="card-title">{{videoPost.videoTitle}} <a routerLink="/ufo-videos/{{videoPost.id}}/edit"><i *ngIf="displayEditIcon" class="fa fa-pencil"></i></a>
       </h5>
