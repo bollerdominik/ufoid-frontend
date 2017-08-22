@@ -21,7 +21,7 @@
     </div>
     <div class="form-group row">
       <label>Location:</label>
-      <input type="text" class="form-control" id="autocompleteInput">
+      <input type="text" class="form-control" id="autocompleteInput" (focus)="autocomplete()">
     </div>
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
