@@ -67,7 +67,6 @@
     transition-duration: 300ms;
     transition-timing-function: ease;
     color: rgb(72, 159, 217)!important;
-    font-weight: bold;
 }
 
 .nav-link--login:hover {
@@ -101,7 +100,6 @@
     transition-duration: 300ms;
     transition-timing-function: ease;
     color: rgb(72, 159, 217)!important;
-    font-weight: bold;
     margin-left: 17px;
     border-color: #76c5fa;
     background-color: #76c5fa;

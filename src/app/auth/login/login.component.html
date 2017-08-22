@@ -1,18 +1,36 @@
-<div class="container">
-  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-    <form (ngSubmit)="onLogIn(f)" #f="ngForm">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="username" id="username" name="username" ngModel class="form-control">
+<section class="about-ufoid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 ufoid-description">
+        <h2 class="ufoid-description__title">A new way to collect and analyze UFO videos</h2>
+        <p class="ufoid-description__text">We can have a much more great footage if we change the way we look for UFO's. The UFO Detector program allows anyone to monitor the skies day and night for unidentifiable objects. All you need is a computer with a USB camera.</p>
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" ngModel class="form-control">
+      <div class="col-md-6 ufoid-image">
+        <img src="../../assets/ufoid-img.png" alt="ufon-img" class="ufoid-img">
       </div>
-      <button class="btn btn-primary" type="submit">Log In</button>
-      <div class="form-control-feedback">
-        <div *ngIf="authError" class="alert alert-danger" role="alert">Invalid login. Please try again</div>
-      </div>
-    </form>
+    </div>
   </div>
-</div>
+</section>
+<section class="login">
+  <div class="container">
+    <div class="row login-wrapper">
+      <h2 class="login__title blue-title">Login to your account</h2>
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form (ngSubmit)="onLogIn(f)" #f="ngForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="username" id="username" name="username" ngModel class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" ngModel class="form-control">
+          </div>
+          <button class="nav-link--login" type="submit">Log In</button>
+          <div class="form-control-feedback">
+            <div *ngIf="authError" class="alert alert-danger" role="alert">Invalid login. Please try again</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
