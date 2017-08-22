@@ -1,0 +1,111 @@
+/* about section styles */
+
+.about-ufoid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: rgb(72, 159, 217);
+    background-image: url("../../assets/analytics-graphic2.png"), radial-gradient(circle closest-corner at 70% 38%, rgb(72, 159, 217) 16%, rgb(84, 118, 224));
+    background-size: cover, auto;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.227451) 0px 1px 0px;
+    background-position: 0% 23%, 0px 0px;
+}
+
+.director-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 38px;
+    margin-bottom: 20px;
+    text-shadow: none;
+}
+
+.detector__image {
+    max-width: 100%;
+}
+
+.detector {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.detector__title {
+    margin-bottom: 15px;
+}
+
+.detector__download {
+    color: #fff;
+    background-color: #2481b7;
+    border-color: #2481b7;
+    padding: 7px 14px;
+    display: inline-block;
+    transition: all .3s ease-in-out;
+    margin-bottom: 20px;
+}
+
+.detector__download:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.detector__text {
+    font-weight: 300;
+}
+
+.follow-us {
+    text-decoration: none;
+    color: #2481b7;
+}
+
+.follow-us:hover {
+    text-decoration: underline;
+}
+
+.part {
+    justify-content: center;
+}
+
+.blue-title {
+    color: rgb(72, 159, 217);
+    font-size: 35px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.software-developer {
+    min-width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.detector_github {
+    font-size: 24px;
+    text-decoration: none;
+    color: #2481b7;
+}
+
+.upload-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.upload-item {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.upload-item:nth-child(5) {
+    margin-right: 0px;
+}
+
+.upload-list--first {
+    margin-bottom: 20px;
+}
+
+.software-developer:nth-child(4) {
+    border-bottom: none;
+}
