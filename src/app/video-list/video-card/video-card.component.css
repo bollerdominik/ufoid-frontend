@@ -1,8 +1,3 @@
-a {
-  all: unset;
-  cursor: pointer;
-}
-
 .progress-bar {
   float: left;
   width: 0;
@@ -15,4 +10,66 @@ a {
   -webkit-transition: width .6s ease;
   -o-transition: width .6s ease;
   transition: width .6s ease;
+}
+
+.location-text {
+    width: 315px;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.25);
+  margin-bottom: 30px;
+  transition: all .3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0px 13px 21px -5px rgba(0, 0, 0, 0.3);
+}
+
+.card a {
+  color: black;
+}
+
+.card a:hover {
+  text-decoration: none;
+}
+
+.list-group-item {
+  position: relative;
+}
+
+.list-group-item i.fa-question-circle-o {
+    position: absolute;
+    left: 3px;
+    top: 3px;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.card-title {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    margin-bottom: 0px;
+    padding-left: 19px;
+    color: #777;
+    font-weight: 300;
+    border-left: 1px solid rgba(0,0,0,.125);
+    border-right: 1px solid rgba(0,0,0,.125);
+}
+
+.fa--padding {
+  padding-right: 5px;
+}
+
+.list-group-item:last-child {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
