@@ -74,6 +74,16 @@
   cursor: pointer;
 }
 
+.btn-download {
+  background-color: #489FD9;
+  border-color: #489FD9;
+}
+
+.btn-download:hover {
+  background-color: #51bcff;
+  border-color: #51bcff;
+}
+
 .video-form {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -122,14 +132,14 @@
   display: block;
   margin-top: 20px;
   margin-top: 15px;
-  background-color: rgb(118, 197, 250);
+  background-color: #51bcff;
   border: none;
   cursor: pointer;
   transition: all .3s ease-in-out;
 }
 
 .submit-opinion:hover {
-  background-color: rgb(143, 207, 250);
+  background-color: #66d1ff;
 }
 
 .progress-wrapper {
