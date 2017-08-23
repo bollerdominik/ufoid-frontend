@@ -58,13 +58,13 @@
         </div>
         <textarea class="form-control" id="exampleTextarea" rows="6" placeholder="What is your opinion about the video?" [(ngModel)]="newOpinionText"></textarea>
         <button type="submit" class="btn btn-primary submit-opinion" (click)="addOpinion()">Add your opinion...</button>
-        <div class="row">
+        <div class="row error-wrapper--form">
           <div *ngIf="errorSavingOpinion" class="alert alert-danger" role="alert">{{errorSavingOpinionText}}</div>
         </div>
-        <div class="row">
+        <div class="row error-wrapper--form">
           <div *ngIf="errorSavingOpinionNotLoggedIn" class="alert alert-danger" role="alert">Please <a href="login">log in</a> or <a href="signup">register</a> to perform this action</div>
         </div>
-        <div class="row">
+        <div class="row error-wrapper--form">
           <div *ngIf="successSavingOpinion" class="alert alert-success" role="alert">Successfully added your opinion to the video</div>
         </div>
       </div>
