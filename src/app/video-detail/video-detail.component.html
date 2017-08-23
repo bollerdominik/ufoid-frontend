@@ -1,93 +1,104 @@
+<section class="about-ufoid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="director-title">Video</h2>
+      </div>
+    </div>
+  </div>
+</section>
 <div class="container">
-  <article class="post-entry" *ngIf="videoPost">
-    <header>
-      <h1>{{videoPost.videoTitle}}</h1>
-      <p>
-        <i class="fa fa-calendar"></i> Recorded: {{videoPost.recordingDate | date:'medium'}}
-        <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{videoPost.user}}</a>
-        <i class="fa fa-map-marker"></i> {{videoPost.locationName}}
-        <i class="fa fa-star"></i> {{reputation}}
-      </p>
-    </header>
-    <div class="row">
-      <video controls loop controlsList="nodownload" poster="{{API_URL}}files/{{videoPost.id}}/thumbs.jpg">
-        <source src="{{API_URL}}files/{{videoPost.id}}/video.mp4" type="video/mp4" />
-        Browser not supported
-      </video>
-    </div>
-    <div class="row">
-      <button (click)="onClickDownloadButton()" id="download" class="btn btn-primary btn-info float-xs-right">
-        <i class="fa fa-download"></i>
-        Download original video file</button>
-    </div>
-    <div class="row">
-      <div *ngIf="authError" class="alert alert-danger" role="alert">Please <a href="login">log in</a> to perform this action</div>
-    </div>
-    <div class="row">
-      <pre>{{videoPost.description}}</pre>
-    </div>
-    <div class="form-group row">
-      <div class="col">
-        <label for="exampleTextarea">Does this video show a UFO?</label>
+  <div class="row">
+    <article class="post-entry col-md-12" *ngIf="videoPost">
+      <header>
+        <h1 class="blue-title">{{videoPost.videoTitle}}</h1>
+        <p>
+          <i class="fa fa-calendar"></i> Recorded: {{videoPost.recordingDate | date:'medium'}}
+          <a class="recorded-person" routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{videoPost.user}}</a>
+          <i class="fa fa-map-marker"></i> {{videoPost.locationName}}
+          <i class="fa fa-star"></i> {{reputation}}
+        </p>
+      </header>
+      <div class="col-md-12">
+        <video controls loop controlsList="nodownload" poster="{{API_URL}}files/{{videoPost.id}}/thumbs.jpg">
+          <source src="{{API_URL}}files/{{videoPost.id}}/video.mp4" type="video/mp4" />
+          Browser not supported
+        </video>
       </div>
-      <div class="btn-group" data-toggle="buttons">
-        <label [ngClass]="{'btn': true, 'btn-outline-success': true, 'active': isYesPressed}">
-          <input type="radio" name="options" id="option1" autocomplete="off" (click)="onYesButtonClicked()">Yes
-        </label>
-        <label [ngClass]="{'btn': true, 'btn-outline-danger': true, 'active': isNoPressed}">
-          <input type="radio" name="options" id="option2" autocomplete="off" (click)="onNoButtonClicked()">No
-        </label>
+      <div class="row">
+        <button (click)="onClickDownloadButton()" id="download" class="btn btn-primary btn-info float-xs-right">
+          <i class="fa fa-download"></i>
+          Download original video file</button>
       </div>
-      <textarea class="form-control" id="exampleTextarea" rows="4" placeholder="What is your opinion about the video?" [(ngModel)]="newOpinionText"></textarea>
-      <button type="submit" class="btn btn-primary" (click)="addOpinion()">Add your opinion...</button>
-    </div>
-    <div class="row">
-      <div *ngIf="errorSavingOpinion" class="alert alert-danger" role="alert">{{errorSavingOpinionText}}</div>
-    </div>
-    <div class="row">
-      <div *ngIf="errorSavingOpinionNotLoggedIn" class="alert alert-danger" role="alert">Please <a href="login">log in</a> or <a href="signup">register</a> to perform this action</div>
-    </div>
-    <div class="row">
-      <div *ngIf="successSavingOpinion" class="alert alert-success" role="alert">Successfully added your opinion to the video</div>
-    </div>
-    <h3 class="text-center"><i class="fa fa-comments-o"></i> Opinions</h3>
+      <div class="row">
+        <div *ngIf="authError" class="alert alert-danger" role="alert">Please <a href="login">log in</a> to perform this action</div>
+      </div>
+      <div class="row">
+        <pre>{{videoPost.description}}</pre>
+      </div>
+      <div class="form-group row">
+        <div class="col">
+          <label for="exampleTextarea">Does this video show a UFO?</label>
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+          <label [ngClass]="{'btn': true, 'btn-outline-success': true, 'active': isYesPressed}">
+            <input type="radio" name="options" id="option1" autocomplete="off" (click)="onYesButtonClicked()">Yes
+          </label>
+          <label [ngClass]="{'btn': true, 'btn-outline-danger': true, 'active': isNoPressed}">
+            <input type="radio" name="options" id="option2" autocomplete="off" (click)="onNoButtonClicked()">No
+          </label>
+        </div>
+        <textarea class="form-control" id="exampleTextarea" rows="4" placeholder="What is your opinion about the video?" [(ngModel)]="newOpinionText"></textarea>
+        <button type="submit" class="btn btn-primary" (click)="addOpinion()">Add your opinion...</button>
+      </div>
+      <div class="row">
+        <div *ngIf="errorSavingOpinion" class="alert alert-danger" role="alert">{{errorSavingOpinionText}}</div>
+      </div>
+      <div class="row">
+        <div *ngIf="errorSavingOpinionNotLoggedIn" class="alert alert-danger" role="alert">Please <a href="login">log in</a> or <a href="signup">register</a> to perform this action</div>
+      </div>
+      <div class="row">
+        <div *ngIf="successSavingOpinion" class="alert alert-success" role="alert">Successfully added your opinion to the video</div>
+      </div>
+      <h3 class="text-center"><i class="fa fa-comments-o"></i> Opinions</h3>
 
-    <div class="container">
-      <div class="progress margin-top-20 col-xs-6 no-padding-left no-padding">
-        <span class="commenting btn btn-lg btn-success">Yes</span>
-        <div class="bg-success text-white progress-bar" [ngStyle]="{'width': progressBarWidth.yes + '%'}">{{progressBarWidth.yes | number:'1.2-2'}}%</div>
-        <div class="bg-danger text-white progress-bar" [ngStyle]="{'width': progressBarWidth.no + '%'}">{{progressBarWidth.no | number:'1.2-2'}}%</div>
-        <span class="commenting btn btn-lg btn-danger">No</span>
-      </div>
-    </div>
-
-    <div class="row" *ngFor="let opinion of opinions">
       <div class="container">
-        <div class="row">
-          <div class="col-sm-5">
-            <div class="panel panel-default" *ngIf="(this.opinionState[opinion.opinionState] == opinionState.YES)">
-              <div class="panel-heading">
-                <strong>{{opinion.username}}</strong> <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
-              </div>
-              <div class="panel-body">
-                {{opinion.text}}
-              </div><!-- /panel-body -->
-            </div><!-- /panel panel-default -->
-          </div><!-- /col-sm-5 -->
+        <div class="progress margin-top-20 col-xs-6 no-padding-left no-padding">
+          <span class="commenting btn btn-lg btn-success">Yes</span>
+          <div class="bg-success text-white progress-bar" [ngStyle]="{'width': progressBarWidth.yes + '%'}">{{progressBarWidth.yes | number:'1.2-2'}}%</div>
+          <div class="bg-danger text-white progress-bar" [ngStyle]="{'width': progressBarWidth.no + '%'}">{{progressBarWidth.no | number:'1.2-2'}}%</div>
+          <span class="commenting btn btn-lg btn-danger">No</span>
+        </div>
+      </div>
 
-          <div class="col-sm-5">
-            <div class="panel panel-default" *ngIf="this.opinionState[opinion.opinionState] == opinionState.NO">
-              <div class="panel-heading">
-                <strong>{{opinion.username}}</strong> <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
-              </div>
-              <div class="panel-body">
-                {{opinion.text}}
-              </div><!-- /panel-body -->
-            </div><!-- /panel panel-default -->
-          </div><!-- /col-sm-5 -->
-        </div><!-- /row -->
-      </div><!-- /container -->
-    </div>
-  </article>
+      <div class="row" *ngFor="let opinion of opinions">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="panel panel-default" *ngIf="(this.opinionState[opinion.opinionState] == opinionState.YES)">
+                <div class="panel-heading">
+                  <strong>{{opinion.username}}</strong> <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
+                </div>
+                <div class="panel-body">
+                  {{opinion.text}}
+                </div><!-- /panel-body -->
+              </div><!-- /panel panel-default -->
+            </div><!-- /col-sm-5 -->
+
+            <div class="col-sm-5">
+              <div class="panel panel-default" *ngIf="this.opinionState[opinion.opinionState] == opinionState.NO">
+                <div class="panel-heading">
+                  <strong>{{opinion.username}}</strong> <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
+                </div>
+                <div class="panel-body">
+                  {{opinion.text}}
+                </div><!-- /panel-body -->
+              </div><!-- /panel panel-default -->
+            </div><!-- /col-sm-5 -->
+          </div><!-- /row -->
+        </div><!-- /container -->
+      </div>
+    </article>
+  </div>
 </div>
 

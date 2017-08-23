@@ -22,10 +22,12 @@
 
 .card-columns {
   margin-bottom: 60px;
+  padding: 0 10%;
 }
 
 .pagination {
   margin-bottom: 50px;
+  padding: 0 10%;
 }
 
 .pagination__previous {

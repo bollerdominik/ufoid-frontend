@@ -41,12 +41,15 @@
 
 .list-group-item {
   position: relative;
+  display: flex;
 }
 
-.list-group-item i.fa-question-circle-o {
-    position: absolute;
-    left: 3px;
-    top: 3px;
+.fa {
+  width: 30px;
+}
+
+.list-group-item .container {
+  padding: 0;
 }
 
 .list-group-item:first-child {
@@ -65,7 +68,7 @@
     border-right: 1px solid rgba(0,0,0,.125);
 }
 
-.fa--padding {
+.fa--padding, .fa-question-circle-o {
   padding-right: 5px;
 }
 
