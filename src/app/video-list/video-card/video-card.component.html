@@ -9,8 +9,8 @@
           <i class="fa fa-question-circle-o"></i>
           <div class="container">
             <div class="progress">
-              <div class="bg-success text-white progress-bar" [ngStyle]="{'width': videoPost.yesOpinionPercentage + '%'}">{{videoPost.yesOpinionPercentage}}%</div>
-              <div class="bg-danger text-white progress-bar" [ngStyle]="{'width': 100-videoPost.yesOpinionPercentage + '%'}">{{100-videoPost.yesOpinionPercentage}}%</div>
+              <div *ngIf="videoPost.yesOpinionPercentage > 0" class="bg-success text-white progress-bar" [ngStyle]="{'width': videoPost.yesOpinionPercentage + '%'}">{{videoPost.yesOpinionPercentage}}%</div>
+              <div *ngIf="videoPost.yesOpinionPercentage < 100" class="bg-danger text-white progress-bar" [ngStyle]="{'width': 100-videoPost.yesOpinionPercentage + '%'}">{{100-videoPost.yesOpinionPercentage}}%</div>
             </div>
           </div>
         </li>
