@@ -1,9 +1,86 @@
+/* about section styles */
 
-.card:hover{
-  box-shadow: 5px 5px 5px #888888;
+.about-ufoid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: rgb(72, 159, 217);
+    background-image: url("../../assets/analytics-graphic2.png"), radial-gradient(circle closest-corner at 70% 38%, rgb(72, 159, 217) 16%, rgb(84, 118, 224));
+    background-size: cover, auto;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.227451) 0px 1px 0px;
+    background-position: 0% 23%, 0px 0px;
+    margin-bottom: 30px;
 }
 
-.card{
-  box-shadow: 2px 2px 4px #888888;
+.director-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 38px;
+    margin-bottom: 20px;
+    text-shadow: none;
 }
 
+.card-columns {
+  margin-bottom: 60px;
+}
+
+.pagination {
+  margin-bottom: 50px;
+}
+
+.pagination__previous {
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.pagination__next {
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.page-link--pagination, .pagination__next a, .pagination__previous a {
+  cursor: pointer!important;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: rgb(72, 159, 217);
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: rgb(72, 159, 217);
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: rgb(72, 159, 217);
+  border-left-style: solid;
+  border-left-width: 2px;
+  border-left-color: rgb(72, 159, 217);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  box-shadow: none;
+  transform: translate(0px, 0px);
+  padding: 6px 12px;
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+  color: rgb(72, 159, 217);
+  font-weight: 500;
+}
+
+.page-link--pagination {
+  padding: 4px 12px;
+  display: block;
+}
+
+.page-link--pagination:hover {
+  text-decoration: none;
+}
+
+li.active a {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}

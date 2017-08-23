@@ -1,24 +1,42 @@
-<div class="container">
-  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-    <form (ngSubmit)="onSignUp(f)" #f="ngForm">
-      <div class="form-group">
-        <label for="email">E-Mail</label>
-        <input type="email" id="email" name="email" ngModel class="form-control">
+<section class="about-ufoid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 ufoid-description">
+        <h2 class="ufoid-description__title">A new way to collect and analyze UFO videos</h2>
+        <p class="ufoid-description__text">We can have a much more great footage if we change the way we look for UFO's. The UFO Detector program allows anyone to monitor the skies day and night for unidentifiable objects. All you need is a computer with a USB camera.</p>
       </div>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="username" id="username" name="username" ngModel class="form-control">
+      <div class="col-md-6 ufoid-image">
+        <img src="../../assets/ufoid-img.png" alt="ufon-img" class="ufoid-img">
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" ngModel class="form-control">
-      </div>
-      <button class="btn btn-primary" type="submit">Sign Up</button>
-      <div class="form-control-feedback">
-        <div *ngIf="signUpSuccess" class="alert alert-success" role="alert">Account created successfully! You can <a routerLink="../login">log in</a> now</div>
-        <div *ngIf="existingLoginError" class="alert alert-danger" role="alert">Username or Email is already register. <a routerLink="../login">log in</a> or create a new account</div>
-        <div *ngIf="otherError" class="alert alert-danger" role="alert">Something went wrong. Contact the admin if the error persists</div>
-      </div>
-    </form>
+    </div>
   </div>
-</div>
+</section>
+<section class="login">
+  <div class="container">
+    <div class="row login-wrapper">
+      <h2 class="login__title blue-title">Register your account</h2>
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form (ngSubmit)="onSignUp(f)" #f="ngForm">
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" ngModel class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="username" id="username" name="username" ngModel class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" ngModel class="form-control">
+          </div>
+          <button class="nav-link--login" type="submit">Sign Up</button>
+          <div class="form-control-feedback">
+            <div *ngIf="signUpSuccess" class="alert alert-success" role="alert">Account created successfully! You can <a routerLink="../login">log in</a> now</div>
+            <div *ngIf="existingLoginError" class="alert alert-danger" role="alert">Username or Email is already register. <a routerLink="../login">log in</a> or create a new account</div>
+            <div *ngIf="otherError" class="alert alert-danger" role="alert">Something went wrong. Contact the admin if the error persists</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

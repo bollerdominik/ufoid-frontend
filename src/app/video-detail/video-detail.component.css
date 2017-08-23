@@ -1,3 +1,25 @@
+/* about section styles */
+
+.about-ufoid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: rgb(72, 159, 217);
+    background-image: url("../../assets/analytics-graphic2.png"), radial-gradient(circle closest-corner at 70% 38%, rgb(72, 159, 217) 16%, rgb(84, 118, 224));
+    background-size: cover, auto;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.227451) 0px 1px 0px;
+    background-position: 0% 23%, 0px 0px;
+    margin-bottom: 30px;
+}
+
+.director-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 38px;
+    margin-bottom: 20px;
+    text-shadow: none;
+}
+
 .progress-bar {
   float: left;
   width: 0;
@@ -10,4 +32,191 @@
   -webkit-transition: width .6s ease;
   -o-transition: width .6s ease;
   transition: width .6s ease;
+}
+
+.blue-title {
+    color: rgb(72, 159, 217);
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.recorded-person {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(72, 159, 217);
+}
+
+.fa-star {
+  padding-left: 10px;
+}
+
+.video-detail {
+  max-width: 550px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.author-info {
+  margin-bottom: 50px;
+}
+
+.download-wrapper {
+  margin-bottom: 10px;
+}
+
+.download-wrapper, .error-wrapper {
+  justify-content: flex-end;
+}
+
+.download-wrapper button {
+  cursor: pointer;
+}
+
+.video-form {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #489FD9;
+  background-image: radial-gradient(circle closest-corner at 68% 43%, rgb(72, 159, 217), rgb(53, 137, 214)), linear-gradient(rgb(72, 159, 217), rgb(72, 159, 217));
+}
+
+.form-wrapper {
+  justify-content: center;
+}
+
+.need-download {
+  color: #fff;
+  font-weight: bold;
+  align-self: center;
+  margin-bottom: 0;
+}
+
+.question-row {
+  min-width: 100%;
+  justify-content: space-between;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.question-row label.btn {
+  background-color: #fff;
+  color: #777;
+  border-color: #777;
+  cursor: pointer;
+}
+
+.btn-outline-success.active {
+  background-color: #24b778!important;
+  color: #fff!important;
+  border-color: transparent!important;
+}
+
+.btn-outline-danger.active {
+  background-color: #b72424!important;
+  color: #fff!important;
+  border-color: transparent!important;
+}
+
+.submit-opinion {
+  display: block;
+  margin-top: 20px;
+  margin-top: 15px;
+  background-color: rgb(118, 197, 250);
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.submit-opinion:hover {
+  background-color: rgb(143, 207, 250);
+}
+
+.progress-wrapper {
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.progress-wrapper__title {
+  margin-bottom: 50px;
+}
+
+.progress {
+  background-color: transparent;
+  min-width: 70%;
+  margin: 0 auto;
+}
+
+.commenting.btn-success {
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.commenting.btn-danger {
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.progress-bar {
+  position: relative;
+  top: 14px;
+}
+
+.progress-wrapper {
+  margin-bottom: 50px;
+}
+
+.panel {
+  background-color: rgb(218, 236, 247);
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(174, 207, 226);
+  padding: 15px;
+}
+
+.panel-heading strong {
+  color: #2481b7;
+}
+
+.panel-body {
+  padding: 15px;
+}
+
+.option {
+  margin-bottom: 30px;
+}
+
+.download-wrapper span {
+  text-align: right;
+}
+
+.error-wrapper--form .alert {
+  margin-top: 10px;
+  margin-left: 16px;
+}
+
+@media only screen and (max-width: 767px) { 
+  .video-detail {
+    max-width: 100%;
+    margin: 0;
+    margin-bottom: 40px;
+  }
+  .download-wrapper {
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 575px) { 
+  .mobile-option-no, .mobile-option-yes {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 575px) {
+  .mobile-opinions {
+    display: none;
+  }
 }

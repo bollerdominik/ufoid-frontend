@@ -9,32 +9,32 @@
           <i class="fa fa-question-circle-o"></i>
           <div class="container">
             <div class="progress">
-              <div class="bg-success text-white progress-bar" [ngStyle]="{'width': videoPost.yesOpinionPercentage + '%'}">{{videoPost.yesOpinionPercentage}}%</div>
-              <div class="bg-danger text-white progress-bar" [ngStyle]="{'width': 100-videoPost.yesOpinionPercentage + '%'}">{{100-videoPost.yesOpinionPercentage}}%</div>
+              <div *ngIf="videoPost.yesOpinionPercentage > 0" class="bg-success text-white progress-bar" [ngStyle]="{'width': videoPost.yesOpinionPercentage + '%'}">{{videoPost.yesOpinionPercentage}}%</div>
+              <div *ngIf="videoPost.yesOpinionPercentage < 100" class="bg-danger text-white progress-bar" [ngStyle]="{'width': 100-videoPost.yesOpinionPercentage + '%'}">{{100-videoPost.yesOpinionPercentage}}%</div>
             </div>
           </div>
         </li>
         <li class="list-group-item">
-              <span>
-                <i class="fa fa-map-marker"></i>
+              <span class="location-text">
+                <i class="fa fa-map-marker fa--padding"></i>
                 {{videoPost.locationName}}
               </span>
         </li>
         <li class="list-group-item">
               <span>
-                <i class="fa fa-calendar"></i>
+                <i class="fa fa-calendar fa--padding"></i>
                 {{videoPost.recordingDate | date:'medium'}}
               </span>
         </li>
         <li class="list-group-item">
               <span>
-              <i class="fa fa-user"></i>
+              <i class="fa fa-user fa--padding"></i>
               {{videoPost.user}}
               </span>
         </li>
         <li class="list-group-item">
               <span>
-              <i class="fa fa-comments-o"></i>
+              <i class="fa fa-comments-o fa--padding"></i>
                 {{videoPost.numberOfOpinions}} comments
               </span>
         </li>
