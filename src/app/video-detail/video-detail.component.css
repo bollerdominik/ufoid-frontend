@@ -77,8 +77,8 @@
 .video-form {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #489FD9;
-  background-image: radial-gradient(circle closest-corner at 68% 43%, rgb(72, 159, 217), rgb(53, 137, 214)), linear-gradient(rgb(72, 159, 217), rgb(72, 159, 217));
+  background-color: #5476e0;
+  background-image: radial-gradient(circle closest-corner at 68% 43%, rgb(72, 159, 217), rgb(84, 118, 224)), linear-gradient(rgb(72, 159, 217), rgb(72, 159, 217));
 }
 
 .form-wrapper {
@@ -198,7 +198,7 @@
   margin-left: 16px;
 }
 
-@media only screen and (max-width: 767px) { 
+@media only screen and (max-width: 767px) {
   .video-detail {
     max-width: 100%;
     margin: 0;
@@ -209,7 +209,7 @@
   }
 }
 
-@media only screen and (max-width: 575px) { 
+@media only screen and (max-width: 575px) {
   .mobile-option-no, .mobile-option-yes {
     display: none;
   }
