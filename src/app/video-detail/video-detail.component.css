@@ -1,23 +1,7 @@
 /* about section styles */
-
 .about-ufoid {
-    padding-top: 70px;
-    padding-bottom: 70px;
-    background-color: rgb(72, 159, 217);
-    background-image: url("../../assets/analytics-graphic2.png"), radial-gradient(circle closest-corner at 70% 38%, rgb(72, 159, 217) 16%, rgb(84, 118, 224));
-    background-size: cover, auto;
-    color: white;
-    text-shadow: rgba(0, 0, 0, 0.227451) 0px 1px 0px;
-    background-position: 0% 23%, 0px 0px;
-    margin-bottom: 30px;
-}
-
-.director-title {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
-    font-size: 38px;
-    margin-bottom: 20px;
-    text-shadow: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .progress-bar {

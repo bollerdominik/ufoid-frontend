@@ -1,12 +1,4 @@
-<section class="about-ufoid">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="director-title">Videos</h2>
-      </div>
-    </div>
-  </div>
-</section>
+<app-titlebar [title]="'Videos'"></app-titlebar>
 <div class="container">
   <div class=" row card-columns">
     <app-video-card class="col-lg-4 col-md-6 col-sm-6" *ngFor="let videopost of videoPosts" [videoPost]="videopost"></app-video-card>
