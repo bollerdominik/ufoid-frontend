@@ -1,6 +1,6 @@
 .about-ufoid {
-  padding-top: 70px;
-  padding-bottom: 70px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   background-color: rgb(72, 159, 217);
   background-image: url("../../../assets/analytics-graphic2.png"), radial-gradient(circle closest-corner at 70% 38%, rgb(72, 159, 217) 16%, rgb(84, 118, 224));
   background-size: cover, auto;
