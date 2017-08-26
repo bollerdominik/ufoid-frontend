@@ -5,6 +5,7 @@ import {Response} from "@angular/http";
 import {DataService, SIZE_PER_PAGE} from "../shared/data.service";
 import {ActivatedRoute} from "@angular/router";
 import {isUndefined} from "util";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-video-list',
@@ -22,9 +23,10 @@ export class VideoListComponent implements OnInit {
   private currentPage: number;
   private totalVideoPosts: number;
 
-  constructor(private activeRoute: ActivatedRoute, private apiService: ApiService, private dataService: DataService) { }
+  constructor(private activeRoute: ActivatedRoute, private titleService: Title, private apiService: ApiService, private dataService: DataService) { }
 
   ngOnInit() {
+    this.titleService.setTitle('UFO Detector | UFO Videos');
     this.activeRoute.queryParams.subscribe(data => {
       this.currentPage = isUndefined(data.page) ? 1 : data.page;
       if (!this.fromUser) {

@@ -4,6 +4,7 @@ import {ApiService} from "../shared/api.service";
 import 'rxjs/Rx';
 import {VideoPost} from "../domain-model/video-post.model";
 import {DataService} from "../shared/data.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-user-profile',
@@ -16,7 +17,7 @@ export class UserProfileComponent implements OnInit {
   private reputation: number;
   private videoPosts: VideoPost[];
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService, private dataService: DataService) {
+  constructor(private titleService: Title, private route: ActivatedRoute, private apiService: ApiService, private dataService: DataService) {
   }
 
   ngOnInit() {
@@ -24,6 +25,7 @@ export class UserProfileComponent implements OnInit {
       this.apiService.getUser(params['username']).map(res => res.json()).subscribe(data => {
         if (data) {
           this.username = data.username;
+          this.titleService.setTitle('UFO ID | Profile - ' + this.username);
           this.reputation = data.reputation;
           this.videoPosts = [];
           for (const post of data.videoPosts){

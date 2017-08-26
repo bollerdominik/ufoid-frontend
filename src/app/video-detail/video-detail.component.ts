@@ -8,7 +8,7 @@ import {AuthService} from "../shared/auth.service";
 import {API_URL, DataService} from "../shared/data.service";
 import {Opinion, OpinionState} from "../domain-model/opinion.model";
 import 'rxjs/add/operator/catch';
-import {count} from "rxjs/operator/count";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-video-detail',
@@ -44,18 +44,18 @@ export class VideoDetailComponent implements OnInit {
     minute: 60
   };
 
-  constructor(private videoPostService: VideoPostService, private apiService: ApiService, private authService: AuthService,
+  constructor(private titleService: Title, private videoPostService: VideoPostService, private apiService: ApiService, private authService: AuthService,
               private dataService: DataService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-
     if (!this.videoPostService.videoPost) {
       console.log("load data from api");
       this.route.params.subscribe((params: Params) =>
         this.apiService.getVideoDetail(+params["id"]).subscribe(
           (response: Response) => {
             this.videoPost = this.dataService.getVideoPostModelFromJson(response.json());
+            this.titleService.setTitle('UFO Detector | Video - ' + this.videoPost.videoTitle);
             this.getOpinions();
           },
           (error) => console.error(error)
@@ -64,6 +64,7 @@ export class VideoDetailComponent implements OnInit {
       this.videoPost = this.videoPostService.videoPost;
       this.getOpinions();
     }
+    this.titleService.setTitle('UFO Detector | Video - ' + this.videoPost.videoTitle);
   }
 
   getOpinions() {
