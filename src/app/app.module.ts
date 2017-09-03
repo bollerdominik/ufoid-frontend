@@ -24,6 +24,8 @@ import {DataService} from "./shared/data.service";
 import {DemoNumber} from "app/custompipes";
 import { FooterComponent } from './footer/footer.component';
 import { TitlebarComponent } from './header/titlebar/titlebar.component';
+import { PasswordResetComponent } from './auth/password-reset/password-reset.component';
+import { PasswordChangeComponent } from './auth/password-change/password-change.component';
 
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
@@ -35,6 +37,8 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'user/:username', component: UserProfileComponent},
   { path: 'admin', component: AdminComponent},
+  { path: 'reset', component: PasswordResetComponent},
+  { path: 'change/:token', component: PasswordChangeComponent}
 ];
 
 @NgModule({
@@ -53,7 +57,9 @@ const appRoutes: Routes = [
     EditViewComponent,
     DemoNumber,
     FooterComponent,
-    TitlebarComponent
+    TitlebarComponent,
+    PasswordResetComponent,
+    PasswordChangeComponent
   ],
   imports: [
     BrowserModule,

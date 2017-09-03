@@ -28,7 +28,7 @@ export class VideoDetailComponent implements OnInit {
   private errorSavingOpinionText: string;
   private errorSavingOpinionNotLoggedIn: boolean = false;
   private reputation: number;
-  private API_URL = API_URL;
+  private API = API_URL;
 
   private progressBarWidth = {
     yes: 50,
@@ -64,7 +64,6 @@ export class VideoDetailComponent implements OnInit {
       this.videoPost = this.videoPostService.videoPost;
       this.getOpinions();
     }
-    this.titleService.setTitle('UFO Detector | Video - ' + this.videoPost.videoTitle);
   }
 
   getOpinions() {

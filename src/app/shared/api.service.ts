@@ -65,6 +65,17 @@ export  class ApiService {
   addOpinion(videopostId: number, opinion: Opinion) {
     return this.http.post(API_URL + 'videos/' + videopostId + '/' + 'opinion', opinion, this.getAuthHeader());
   }
+  requestResetPasswordLink(email: string) {
+    const body = new FormData();
+    body.append('email', email);
+    return this.http.post(API_URL + 'reset', body);
+  }
+  changePassword(token: string, pass: string) {
+    const body = new FormData();
+    body.append('token', token);
+    body.append('p', pass);
+    return this.http.post(API_URL + 'change', body);
+  }
   getAuthHeader(): RequestOptionsArgs {
     const headers = new Headers();
     headers.append('Authorization', window.localStorage.token);

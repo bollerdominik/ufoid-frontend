@@ -35,4 +35,8 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  onResetButtonClicked() {
+    this.router.navigate(['reset']);
+  }
 }
