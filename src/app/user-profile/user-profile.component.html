@@ -1,7 +1,11 @@
 <div class="jumbotron">
   <div class="container">
-    <h2><i class="fa fa-user"></i> {{username}}</h2>
-    <p><i class="fa fa-star"></i> {{reputation}}</p>
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="blue-title"><i class="fa fa-user"></i> {{username}}</h2>
+        <p class="blue-title"><i class="fa fa-star"></i> {{reputation}}</p>
+      </div>
+    </div>
   </div>
 </div>
 <app-video-list *ngIf="videoPosts" [userVideos]="videoPosts" [fromUser]="true"></app-video-list>

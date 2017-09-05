@@ -1,3 +1,124 @@
 agm-map {
   height: 300px;
 }
+.video-edit {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: rgb(72, 159, 217);
+    background-image: url("../../../assets/analytics-graphic2.png"), radial-gradient(circle closest-corner at 70% 38%, rgb(72, 159, 217) 16%, rgb(84, 118, 224));
+    background-size: cover, auto;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.227451) 0px 1px 0px;
+    background-position: 0% 23%, 0px 0px;
+    margin-bottom: 30px;
+}
+
+.director-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 38px;
+    margin-bottom: 20px;
+    text-shadow: none;
+}
+
+.video-edit__title {
+    color: rgb(72, 159, 217);
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.video-edit__input {
+    border: 0;
+    border-bottom: 2px solid rgb(72, 159, 217);
+    border-radius: inherit;
+    padding-left: 0;
+    max-width: 350px;
+    margin-bottom: 50px;
+}
+
+.video-edit__video {
+    max-width: 550px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 40px;
+}
+
+.recorded-person {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: rgb(72, 159, 217);
+}
+
+.video-description {
+  text-align: center;
+}
+
+.video-form {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #489FD9;
+  background-image: radial-gradient(circle closest-corner at 68% 43%, rgb(72, 159, 217), rgb(53, 137, 214)), linear-gradient(rgb(72, 159, 217), rgb(72, 159, 217));
+}
+
+.description_video {
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.save-video {
+  display: block;
+  margin-top: 20px;
+  margin-top: 15px;
+  background-color: rgb(118, 197, 250);
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.save-video:hover {
+  background-color: rgb(143, 207, 250);
+}
+
+.cancel-video {
+  display: block;
+  margin-top: 20px;
+  margin-top: 15px;
+  background-color: rgb(195, 87, 98);
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  margin-left: 10px;
+}
+
+.cancel-video:hover {
+  background-color: rgb(239, 96, 111);
+}
+
+.post-entry {
+  margin-top: 30px;
+}
+
+agm-map {
+  height: 300px;
+  margin-bottom: 50px;
+  display: block;
+}
+
+.alert {
+  margin-top: 10px;
+}
+
+.buttons-wrapper { 
+  display: flex;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .video-edit__video {
+      max-width: 100%;
+      margin: 0;
+      margin-bottom: 40px;
+  }
+}

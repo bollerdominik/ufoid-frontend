@@ -26,8 +26,10 @@
         <div class="row error-wrapper">
           <div *ngIf="authError" class="alert alert-danger" role="alert">Please <a href="login">log in</a> to perform this action</div>
         </div>
-        <div class="row download-wrapper">
-          <span>{{videoPost.description}}</span>
+        <div class="row download-wrapper description-wrapper">
+          <div class="col-md-12">
+            <p>{{videoPost.description}}</p>
+          </div>
         </div>
       </article>
     </div>
@@ -74,31 +76,31 @@
           <span class="commenting btn btn-lg btn-danger">No</span>
         </div>
     </div>
-    <div class="row" *ngFor="let opinion of opinions">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="panel panel-default" *ngIf="(this.opinionState[opinion.opinionState] == opinionState.YES)">
-              <div class="panel-heading">
-                <strong>{{opinion.username}}</strong> <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
-              </div>
-              <div class="panel-body">
-                {{opinion.text}}
-              </div><!-- /panel-body -->
-            </div><!-- /panel panel-default -->
-          </div><!-- /col-sm-5 -->
-          <div class="col-sm-6 mobile-option-no">
-            <div class="panel panel-default" *ngIf="this.opinionState[opinion.opinionState] == opinionState.NO">
-              <div class="panel-heading">
-                <strong>{{opinion.username}}</strong> <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
-              </div>
-              <div class="panel-body">
-                {{opinion.text}}
-              </div><!-- /panel-body -->
-            </div><!-- /panel panel-default -->
-          </div><!-- /col-sm-5 -->
-        </div><!-- /row -->
-      </div><!-- /container -->
+    <div class="row">
+      <div class="left-row col-md-6">
+        <div *ngFor="let opinion of opinions">
+          <div class="panel panel-default" *ngIf="(this.opinionState[opinion.opinionState] == opinionState.YES)">
+            <div class="panel-heading">
+              <strong>{{opinion.username}}</strong> <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
+            </div>
+            <div class="panel-body">
+              {{opinion.text}}
+            </div><!-- /panel-body -->
+          </div><!-- /panel panel-default -->
+        </div><!-- /col-sm-5 -->
+      </div>
+      <div class="right-row col-md-6">
+        <div class="mobile-option-no" *ngFor="let opinion of opinions">
+          <div class="panel panel-default" *ngIf="this.opinionState[opinion.opinionState] == opinionState.NO">
+            <div class="panel-heading">
+              <strong>{{opinion.username}}</strong> <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
+            </div>
+            <div class="panel-body">
+              {{opinion.text}}
+            </div><!-- /panel-body -->
+          </div><!-- /panel panel-default -->
+        </div><!-- /col-sm-5 -->
+      </div>  
     </div>
   </div>
 </section>
