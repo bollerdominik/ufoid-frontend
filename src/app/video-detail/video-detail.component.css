@@ -195,6 +195,10 @@
   justify-content: flex-start;
 }
 
+.description-text {
+  font-family: 'Open Sans', sans-serif;
+}
+
 @media only screen and (max-width: 967px) {
   .video-detail {
     max-width: 100%;
