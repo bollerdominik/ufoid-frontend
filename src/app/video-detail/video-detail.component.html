@@ -72,8 +72,8 @@
         <div class="progress margin-top-20 col-xs-6 no-padding-left no-padding">
           <span class="commenting btn btn-lg btn-success">Yes</span>
           <div class="bg-success text-white progress-bar" [ngStyle]="{'width': progressBarWidth.yes + '%'}">{{progressBarWidth.yes | number:'1.2-2'}}%</div>
-          <div class="bg-danger text-white progress-bar" [ngStyle]="{'width': progressBarWidth.no + '%'}">{{progressBarWidth.no | number:'1.2-2'}}%</div>
-          <span class="commenting btn btn-lg btn-danger">No</span>
+          <div class="bg-danger text-white progress-bar no-mobile" [ngStyle]="{'width': progressBarWidth.no + '%'}">{{progressBarWidth.no | number:'1.2-2'}}%</div>
+          <span class="commenting btn btn-lg btn-danger no-mobile">No</span>
         </div>
     </div>
     <div class="row">
@@ -108,8 +108,6 @@
   <div class="container">
     <div class="row progress-wrapper">
         <div class="progress margin-top-20 col-xs-6 no-padding-left no-padding">
-          <span class="commenting btn btn-lg btn-success">Yes</span>
-          <div class="bg-success text-white progress-bar" [ngStyle]="{'width': progressBarWidth.yes + '%'}">{{progressBarWidth.yes | number:'1.2-2'}}%</div>
           <div class="bg-danger text-white progress-bar" [ngStyle]="{'width': progressBarWidth.no + '%'}">{{progressBarWidth.no | number:'1.2-2'}}%</div>
           <span class="commenting btn btn-lg btn-danger">No</span>
         </div>
@@ -117,7 +115,7 @@
     <div class="row" *ngFor="let opinion of opinions">
       <div class="container">
         <div class="row">
-          <div class="col-sm-6 mobile-option-yes">
+          <div class="col-sm-12 mobile-option-yes">
             <div class="panel panel-default" *ngIf="(this.opinionState[opinion.opinionState] == opinionState.YES)">
               <div class="panel-heading">
                 <strong>{{opinion.username}}</strong> <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
@@ -127,7 +125,7 @@
               </div><!-- /panel-body -->
             </div><!-- /panel panel-default -->
           </div><!-- /col-sm-5 -->
-          <div class="col-sm-6">
+          <div class="col-sm-12">
             <div class="panel panel-default" *ngIf="this.opinionState[opinion.opinionState] == opinionState.NO">
               <div class="panel-heading">
                 <strong>{{opinion.username}}</strong> <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
