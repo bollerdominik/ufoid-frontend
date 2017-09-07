@@ -37,14 +37,6 @@
         <label for="exampleTextarea" class="description_video">Description:</label>
         <textarea class="form-control" id="exampleTextarea" rows="6" placeholder="Please decribe your video" [(ngModel)]="videoPost.description"></textarea>
       </div>
-      <div class="col-md-12 buttons-wrapper">
-        <button type="button" class="btn btn-primary save-video" (click)="saveVideoPost()">Save changes</button>
-        <button type="button" class="btn btn-secondary cancel-video" (click)="cancel()">Cancel</button>
-      </div>
-      <div class="col-md-12">
-        <div *ngIf="videoWasSaved" class="alert alert-success" role="alert">The changes where saved successfully</div>
-        <div *ngIf="videoErrorSaving" class="alert alert-danger" role="alert">The changes where not saved correctly. Please contact an admin.</div>
-      </div>
     </div>
   </div>
 </section>
@@ -58,4 +50,14 @@
       </agm-map>
     </div>
   </article>
+  <div class="row buttons-wrapper">
+    <div class="col-md-12 buttons-wrapper">
+      <button type="button" class="btn btn-primary save-video" (click)="saveVideoPost()">Save changes</button>
+      <button type="button" class="btn btn-secondary cancel-video" (click)="cancel()">Cancel</button>
+    </div>
+    <div class="col-md-12">
+      <div *ngIf="videoWasSaved" class="alert alert-success" role="alert">The changes where saved successfully</div>
+      <div *ngIf="videoErrorSaving" class="alert alert-danger" role="alert">The changes where not saved correctly. Please contact an admin.</div>
+    </div>
+  </div>
 </div>

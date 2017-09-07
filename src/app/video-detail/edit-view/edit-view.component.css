@@ -114,6 +114,9 @@ agm-map {
   display: flex;
 }
 
+.buttons-wrapper {
+  margin-bottom: 50px;
+}
 
 @media only screen and (max-width: 767px) {
   .video-edit__video {

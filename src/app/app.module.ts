@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from '@agm/core';
+import { TooltipModule } from 'ngx-tooltip';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -69,7 +70,8 @@ const appRoutes: Routes = [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDEY3dR16Tijupr2gd0-UpUxOttLESkcFs',
       libraries: ['places']
-    })
+    }),
+    TooltipModule
   ],
   providers: [VideoPostService, ApiService, AuthService, DataService],
   bootstrap: [AppComponent]
