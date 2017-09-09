@@ -134,6 +134,15 @@
     padding-right: 0px;
 }
 
+.username_link {
+    margin-top: 19px;
+}
+
+.navbar-toggler-right {
+    position: absolute;
+    right: 0;
+}
+
 @media only screen and (max-width: 1200px) {
     .login-wrapper {
         flex-basis: 40%;
@@ -141,6 +150,26 @@
 }
 
 @media only screen and (max-width: 992px) {
+    .nav-link {
+        text-align: right;
+    }
+    .logo-mobile {
+        position: absolute;
+        left: 0;
+        top: 13px;
+    }
+    .nav-item:nth-child(3) {
+        padding-right: 0px;
+    }
+    .nav-item {
+        padding-right: 0px;
+    }
+    .navbar-brand {
+        display: none;
+    }
+    .mr-auto {
+        margin-top: 70px;
+    }
     .navbar {
         flex-direction: row;
         justify-content: space-between;
@@ -150,7 +179,7 @@
     }
     .navbar-light .navbar-toggler {
         align-self: flex-start;
-        margin-top: 30px;
+        margin-top: 25px;
         border: none;
     }
     .nav-link--register {
@@ -159,5 +188,17 @@
     }
     .nav-link--login {
         padding-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .logo-mobile {
+        left: 15px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .logo-mobile {
+        display: none;
     }
 }

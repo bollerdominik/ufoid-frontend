@@ -1,46 +1,63 @@
+<section class="video-edit">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="director-title">Video edit</h2>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="video-edit-main" *ngIf="videoPost">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="video-edit__title">Title:</h2>
+        <input type="text" class="form-control form-control-lg video-edit__input" [(ngModel)]="videoPost.videoTitle">
+      </div>
+    </div>
+    <p class="video-description">
+      <i class="fa fa-calendar"></i> Recorded: {{videoPost.recordingDate | date:'medium'}}
+      <a class="recorded-person" routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{videoPost.user}}</a>
+      <i class="fa fa-map-marker"></i> {{videoPost.locationName}}
+    </p>
+    <div class="row">
+      <div class="col-md-12">
+        <video controls loop controlsList="nodownload" class="video-edit__video" poster="{{API_URL}}files/{{videoPost.id}}/thumbs.jpg">
+          <source src="{{API_URL}}files/{{videoPost.id}}/video.mp4" type="video/mp4" />
+          Browser not supported
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="video-form">
+  <div class="container">
+    <div class="row">
+      <div class="form-group col-md-12">
+        <label for="exampleTextarea" class="description_video">Description:</label>
+        <textarea class="form-control" id="exampleTextarea" rows="6" placeholder="Please decribe your video" [(ngModel)]="videoPost.description"></textarea>
+      </div>
+    </div>
+  </div>
+</section>
 <div class="container">
   <article class="post-entry" *ngIf="videoPost">
-    <header>
-      <div class="form-group row">
-        <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Title:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" [(ngModel)]="videoPost.videoTitle">
-        </div>
-      </div>
-      <p>
-        <i class="fa fa-calendar"></i> Recorded: {{videoPost.recordingDate | date:'medium'}}
-        <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{videoPost.user}}</a>
-        <i class="fa fa-map-marker"></i> {{videoPost.locationName}}
-      </p>
-    </header>
-    <div class="row">
-      <video controls loop controlsList="nodownload" poster="{{API_URL}}files/{{videoPost.id}}/thumbs.jpg">
-        <source src="{{API_URL}}files/{{videoPost.id}}/video.mp4" type="video/mp4" />
-        Browser not supported
-      </video>
+    <div class="form-group col-md-12">
+      <label class="video-edit__title">Location:</label>
+      <input type="text" class="form-control video-edit__input" id="autocompleteInput" (focus)="autocomplete()">
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
     </div>
-    <div class="form-group row">
-      <label>Location:</label>
-      <input type="text" class="form-control" id="autocompleteInput" (focus)="autocomplete()">
+  </article>
+  <div class="row buttons-wrapper">
+    <div class="col-md-12 buttons-wrapper">
+      <button type="button" class="btn btn-primary save-video" (click)="saveVideoPost()">Save changes</button>
+      <button type="button" class="btn btn-secondary cancel-video" (click)="cancel()">Cancel</button>
     </div>
-    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-    </agm-map>
-
-
-    <div class="form-group row">
-      <label for="exampleTextarea">Description:</label>
-      <textarea class="form-control" id="exampleTextarea" rows="3" [(ngModel)]="videoPost.description"></textarea>
-    </div>
-    <div class="row">
-      <button type="button" class="btn btn-primary" (click)="saveVideoPost()">Save changes</button>
-      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
-    </div>
-    <div class="row">
+    <div class="col-md-12">
       <div *ngIf="videoWasSaved" class="alert alert-success" role="alert">The changes where saved successfully</div>
       <div *ngIf="videoErrorSaving" class="alert alert-danger" role="alert">The changes where not saved correctly. Please contact an admin.</div>
     </div>
-
-  </article>
+  </div>
 </div>
-
