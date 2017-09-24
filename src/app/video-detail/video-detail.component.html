@@ -124,7 +124,10 @@
           <div class="col-sm-12 mobile-option-yes">
             <div class="panel panel-default" *ngIf="(this.opinionState[opinion.opinionState] == opinionState.YES)">
               <div class="panel-heading">
-                <strong>{{opinion.username}}</strong> <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
+                <strong>
+                  <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{opinion.username}}</a>
+                </strong>
+                <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
               </div>
               <div class="panel-body">
                 {{opinion.text}}
@@ -137,6 +140,7 @@
                 <strong>
                   <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{opinion.username}}</a>
                 </strong>
+                <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
               </div>
               <div class="panel-body">
                 {{opinion.text}}
