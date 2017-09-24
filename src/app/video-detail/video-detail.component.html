@@ -12,12 +12,10 @@
             <i class="fa fa-star"></i> {{reputation}}
           </p>
         </header>
-        <div class="col-md-12">
           <video controls loop class="video-detail" controlsList="nodownload" poster="{{API}}files/{{videoPost.id}}/thumbs.jpg">
             <source src="{{API}}files/{{videoPost.id}}/video.mp4" type="video/mp4" />
             Browser not supported
           </video>
-        </div>
         <div class="row download-wrapper">
           <button (click)="onClickDownloadButton()" id="download" class="btn btn-primary btn-download float-xs-right">
             <i class="fa fa-download"></i>
