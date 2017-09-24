@@ -41,10 +41,6 @@
   margin-bottom: 40px;
 }
 
-.author-info {
-  margin-bottom: 50px;
-}
-
 .download-wrapper {
   margin-bottom: 10px;
 }
@@ -197,6 +193,7 @@
 
 .description-text {
   font-family: 'Open Sans', sans-serif;
+  font-style: italic;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5
