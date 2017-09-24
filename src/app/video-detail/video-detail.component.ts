@@ -102,7 +102,7 @@ export class VideoDetailComponent implements OnInit {
     this.successSavingOpinion = false;
     if (!this.isNoPressed && !this.isYesPressed) {
       this.errorSavingOpinion = true;
-      this.errorSavingOpinionText = 'Please check one of the opinion options';
+      this.errorSavingOpinionText = 'Please check one YES / NO option ';
       return;
     }
 
