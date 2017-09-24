@@ -31,11 +31,11 @@
   </div>
 </section>
 <section class="video-form">
-  <div class="container">
+  <div class="container" *ngIf="videoPost">
     <div class="row">
       <div class="form-group col-md-12">
         <label for="exampleTextarea" class="description_video">Description:</label>
-        <textarea class="form-control" id="exampleTextarea" rows="6" placeholder="Please decribe your video" [(ngModel)]="videoPost.description"></textarea>
+        <textarea class="form-control" id="exampleTextarea" rows="6" placeholder="Add a description to your video" [(ngModel)]="videoPost.description"></textarea>
       </div>
     </div>
   </div>
