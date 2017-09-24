@@ -170,7 +170,7 @@
   padding: 15px;
 }
 
-.panel-heading strong {
+.panel-heading strong a {
   color: #2481b7;
 }
 
