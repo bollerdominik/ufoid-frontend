@@ -99,6 +99,7 @@
               <strong>
                 <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{opinion.username}}</a>
               </strong>
+              <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
             </div>
             <div class="panel-body">
               {{opinion.text}}
@@ -133,7 +134,9 @@
           <div class="col-sm-12">
             <div class="panel panel-default" *ngIf="this.opinionState[opinion.opinionState] == opinionState.NO">
               <div class="panel-heading">
-                <strong>{{opinion.username}}</strong> <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
+                <strong>
+                  <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{opinion.username}}</a>
+                </strong>
               </div>
               <div class="panel-body">
                 {{opinion.text}}
