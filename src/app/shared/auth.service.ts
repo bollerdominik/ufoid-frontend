@@ -33,13 +33,13 @@ export  class AuthService {
     const headers = new Headers();
     headers.append('Authorization', window.localStorage.token);
     const opts: RequestOptionsArgs = { headers: headers };
-    return this.http.get(API_URL + 'check', opts);
+    return this.http.get(API_URL + 'security/isUser', opts);
   }
 
   checkAdmin() {
     const headers = new Headers();
     headers.append('Authorization', window.localStorage.token);
     const opts: RequestOptionsArgs = { headers: headers };
-    return this.http.get(API_URL + 'admin/check', opts);
+    return this.http.get(API_URL + 'security/isAdmin', opts);
   }
 }

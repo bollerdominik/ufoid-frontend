@@ -13,11 +13,7 @@ import {Title} from "@angular/platform-browser";
   styleUrls: ['./video-list.component.css']
 })
 export class VideoListComponent implements OnInit {
-  private videoPosts: VideoPost[] = [
-    // new VideoPost(1, "A title for  video", "userABC", "London UK", 5, new Date("2017-06-04T15:40:44.392+0000"), new Date(), ""),
-    // new VideoPost(2, "Another  video", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44.392+0000"),  new Date(), ""),
-    // new VideoPost(3, "video 4", "userABC", "London UK", 10, new Date("2017-06-04T15:40:44.392+0000"), new Date(), "")
-  ];
+  private videoPosts: VideoPost[] = [];
   @Input() private userVideos: VideoPost[];
   @Input() private fromUser: boolean = false;
   private currentPage: number;

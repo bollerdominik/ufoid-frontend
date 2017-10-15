@@ -9,7 +9,7 @@ export const VIDEO_PREFIX = "Capture--";
 export const VIDEO_EXTENSION = ".avi";
 export const WEB_VIDEO_NAME = "video.mp4";
 export const SIZE_PER_PAGE = 5;
-export const API_URL = 'http://178.62.85.186:8090/api/'
+export const API_URL = 'http://localhost:8080/api/'
 
 export  class DataService {
   public pagesCount: number;

@@ -16,7 +16,7 @@ export  class ApiService {
   constructor(private http: Http, private authService: AuthService, private dataService: DataService) {}
 
   getVideoPosts(page: number) {
-    return this.http.get(API_URL + 'videos?page=' + (page - 1) + '&size=' + SIZE_PER_PAGE);
+    return this.http.get(API_URL + 'videos?page=' + page + '&size=' + SIZE_PER_PAGE);
   }
   getVideoDetail(id: number) {
     return this.http.get(API_URL + 'videos/' + id);
@@ -46,7 +46,7 @@ export  class ApiService {
     return this.http.post(API_URL + 'admin/video/' + id + '/' + isPublished, '', this.getAuthHeader());
   }
   editVideoPost(videoPost: VideoPost) {
-    return this.http.post(API_URL + 'videos/' + videoPost.id + '/' + 'edit', videoPost, this.getAuthHeader());
+    return this.http.put(API_URL + 'videos/' + videoPost.id, videoPost, this.getAuthHeader());
   }
   getOpinionsForVideo(id: number): Observable<any> {
     return this.http.get(API_URL + 'videos/' + id + '/' + 'opinion').map((response: Response) => {
