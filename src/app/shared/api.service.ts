@@ -9,6 +9,7 @@ import {Observable} from "rxjs/Observable";
 import 'rxjs/Rx';
 import {API_URL, DataService, SIZE_PER_PAGE} from "./data.service";
 import {Opinion} from "../domain-model/opinion.model";
+import {isUndefined} from "util";
 
 
 @Injectable()
@@ -25,7 +26,11 @@ export  class ApiService {
     return this.http.get(API_URL + 'videos/' + id + '/download', this.getAuthHeader());
   }
   getUser(username: string) {
-    return this.http.get(API_URL + 'users/' + username);
+    const auth: RequestOptionsArgs = this.getAuthHeader();
+    if (isUndefined(auth.headers.values()[0][0])) {
+      return this.http.get(API_URL + 'users/' + username);
+    }
+    return this.http.get(API_URL + 'users/' + username, this.getAuthHeader());
   }
   getAllVideosForAdmin(): Observable<VideoPost[]> {
     return this.http.get(API_URL + 'admin/videos', this.getAuthHeader()).map((response: Response) => {
