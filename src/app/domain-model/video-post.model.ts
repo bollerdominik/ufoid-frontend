@@ -1,4 +1,5 @@
-import {VIDEO_EXTENSION, VIDEO_PREFIX} from "../shared/data.service";
+export const VIDEO_PREFIX = "Capture--";
+export const VIDEO_EXTENSION = ".avi";
 
 export class VideoPost {
 
