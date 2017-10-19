@@ -3,6 +3,7 @@
  */
 import {VideoPost} from "../domain-model/video-post.model";
 import {Opinion} from "../domain-model/opinion.model";
+import {Injectable} from "@angular/core";
 
 export const videoStorageFolder = "storage";
 export const VIDEO_PREFIX = "Capture--";
@@ -11,6 +12,7 @@ export const WEB_VIDEO_NAME = "video.mp4";
 export const SIZE_PER_PAGE = 5;
 export const API_URL = 'http://localhost:8080/api/'
 
+@Injectable()
 export  class DataService {
   public pagesCount: number;
 
