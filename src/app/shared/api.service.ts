@@ -4,17 +4,15 @@
 import {Injectable} from "@angular/core";
 import {Http, RequestOptionsArgs, Headers, Response} from "@angular/http";
 import {VideoPost} from "../domain-model/video-post.model";
-import {AuthService} from "./auth.service";
 import {Observable} from "rxjs/Observable";
-import 'rxjs/Rx';
 import {API_URL, DataService, SIZE_PER_PAGE} from "./data.service";
 import {Opinion} from "../domain-model/opinion.model";
 import {isUndefined} from "util";
-
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export  class ApiService {
-  constructor(private http: Http, private authService: AuthService, private dataService: DataService) {}
+  constructor(private http: Http, private dataService: DataService) {}
 
   getVideoPosts(page: number) {
     return this.http.get(API_URL + 'videos?page=' + page + '&size=' + SIZE_PER_PAGE);

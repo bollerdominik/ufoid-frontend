@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from '@agm/core';
-import { TooltipModule } from 'ngx-tooltip';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -27,6 +26,7 @@ import { FooterComponent } from './footer/footer.component';
 import { TitlebarComponent } from './header/titlebar/titlebar.component';
 import { PasswordResetComponent } from './auth/password-reset/password-reset.component';
 import { PasswordChangeComponent } from './auth/password-change/password-change.component';
+import {TooltipModule} from "ngx-tooltip";
 
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
