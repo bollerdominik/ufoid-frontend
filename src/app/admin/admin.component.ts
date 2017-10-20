@@ -13,7 +13,7 @@ import {ApiService} from "../shared/api.service";
 })
 export class AdminComponent implements OnInit {
 
-  private videoPosts: VideoPost[] = [];
+  public videoPosts: VideoPost[] = [];
   constructor(public authService: AuthService, public apiService: ApiService, public router: Router) { }
 
   ngOnInit() {

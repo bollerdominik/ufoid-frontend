@@ -15,13 +15,13 @@ declare var google: any;
   styleUrls: ['./edit-view.component.css']
 })
 export class EditViewComponent implements OnInit {
-  private videoPost: VideoPost;
-  private lat: number;
-  private lng: number;
-  private zoom: number = 2;
-  private videoWasSaved: boolean = false;
-  private videoErrorSaving: boolean = false;
-  private API_URL = API_URL;
+  public videoPost: VideoPost;
+  public lat: number;
+  public lng: number;
+  public zoom: number = 2;
+  public videoWasSaved: boolean = false;
+  public videoErrorSaving: boolean = false;
+  public API_URL = API_URL;
 
   constructor(private apiService: ApiService, private dataService: DataService, private route: ActivatedRoute, private loader: MapsAPILoader,
               private zone: NgZone, private location: Location) { }

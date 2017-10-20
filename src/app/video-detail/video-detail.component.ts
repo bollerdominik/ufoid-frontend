@@ -16,21 +16,21 @@ import {Title} from "@angular/platform-browser";
   styleUrls: ['./video-detail.component.css']
 })
 export class VideoDetailComponent implements OnInit {
-  private videoPost: VideoPost;
-  private authError = false;
-  private opinions: Opinion[];
+  public videoPost: VideoPost;
+  public authError = false;
+  public opinions: Opinion[];
   public opinionState = OpinionState;
-  private newOpinionText: string;
-  private isYesPressed: boolean = false;
-  private isNoPressed: boolean = false;
-  private successSavingOpinion: boolean = false;
-  private errorSavingOpinion: boolean = false;
-  private errorSavingOpinionText: string;
-  private errorSavingOpinionNotLoggedIn: boolean = false;
-  private reputation: number;
-  private API = API_URL;
+  public newOpinionText: string;
+  public isYesPressed: boolean = false;
+  public isNoPressed: boolean = false;
+  public successSavingOpinion: boolean = false;
+  public errorSavingOpinion: boolean = false;
+  public errorSavingOpinionText: string;
+  public errorSavingOpinionNotLoggedIn: boolean = false;
+  public reputation: number;
+  public API = API_URL;
 
-  private progressBarWidth = {
+  public progressBarWidth = {
     yes: 50,
     no: 50
   };

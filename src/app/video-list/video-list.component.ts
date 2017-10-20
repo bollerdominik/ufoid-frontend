@@ -13,11 +13,11 @@ import {Title} from "@angular/platform-browser";
   styleUrls: ['./video-list.component.css']
 })
 export class VideoListComponent implements OnInit {
-  private videoPosts: VideoPost[] = [];
-  @Input() private userVideos: VideoPost[];
-  @Input() private fromUser: boolean = false;
-  private currentPage: number;
-  private totalVideoPosts: number;
+  public videoPosts: VideoPost[] = [];
+  @Input() public userVideos: VideoPost[];
+  @Input() public fromUser: boolean = false;
+  public currentPage: number;
+  public totalVideoPosts: number;
 
   constructor(private activeRoute: ActivatedRoute, private titleService: Title, private apiService: ApiService, private dataService: DataService) { }
 

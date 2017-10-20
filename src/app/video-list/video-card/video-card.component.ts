@@ -10,9 +10,9 @@ import {API_URL} from "../../shared/data.service";
 })
 export class VideoCardComponent implements OnInit {
 
-  @Input() videoPost: VideoPost;
-  private displayEditIcon: boolean = false;
-  private API_URL = API_URL;
+  @Input() public videoPost: VideoPost;
+  public displayEditIcon: boolean = false;
+  public API_URL = API_URL;
 
   constructor(private videoPostService: VideoPostService) {
   }

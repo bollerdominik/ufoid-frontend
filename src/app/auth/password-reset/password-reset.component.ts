@@ -8,7 +8,7 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./password-reset.component.css']
 })
 export class PasswordResetComponent implements OnInit {
-  private emailIsSent: boolean = false;
+  public emailIsSent: boolean = false;
 
   constructor(private apiService: ApiService) { }
 

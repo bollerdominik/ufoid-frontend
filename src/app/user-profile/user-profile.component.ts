@@ -12,10 +12,10 @@ import {Title} from "@angular/platform-browser";
 })
 export class UserProfileComponent implements OnInit {
 
-  private username: string;
-  private reputation: number;
-  private uploadToken: string;
-  private videoPosts: VideoPost[];
+  public username: string;
+  public reputation: number;
+  public uploadToken: string;
+  public videoPosts: VideoPost[];
 
   constructor(private titleService: Title, private route: ActivatedRoute, private apiService: ApiService, private dataService: DataService) {
   }

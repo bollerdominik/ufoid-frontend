@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private authError = false;
+  public authError = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 

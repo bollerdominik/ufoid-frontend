@@ -9,9 +9,9 @@ import {Response, Headers} from "@angular/http";
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  private signUpSuccess = false;
-  private existingLoginError = false;
-  private otherError = false;
+  public signUpSuccess = false;
+  public existingLoginError = false;
+  public otherError = false;
 
   constructor(private authService: AuthService) { }
 

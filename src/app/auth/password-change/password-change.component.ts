@@ -10,8 +10,8 @@ import {NgForm} from "@angular/forms";
 })
 export class PasswordChangeComponent implements OnInit {
 
-  private passwordIsChanged: boolean = false;
-  private token: string;
+  public passwordIsChanged: boolean = false;
+  public token: string;
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit() {
