@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {AuthService} from "../../shared/auth.service";
-import {Response, Headers} from "@angular/http";
+import {Response} from "@angular/http";
+declare var ga: Function;
 
 @Component({
   selector: 'app-signup',
@@ -16,6 +17,8 @@ export class SignupComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    ga('set', 'page', '/signup');
+    ga('send', 'pageview');
   }
 
   onSignUp(form: NgForm) {

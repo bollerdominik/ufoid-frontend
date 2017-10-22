@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Title} from "@angular/platform-browser";
+declare var ga: Function;
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle('UFO Detector | UFO ID - Record & Analyze UFO Sightings');
+    ga('set', 'page', '/');
+    ga('send', 'pageview');
   }
 
 }

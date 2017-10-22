@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {VideoPost} from '../domain-model/video-post.model';
 import {ApiService} from "../shared/api.service";
 import {Response} from "@angular/http";
@@ -6,6 +6,7 @@ import {DataService, SIZE_PER_PAGE} from "../shared/data.service";
 import {ActivatedRoute} from "@angular/router";
 import {isUndefined} from "util";
 import {Title} from "@angular/platform-browser";
+declare var ga: Function;
 
 @Component({
   selector: 'app-video-list',
@@ -41,6 +42,8 @@ export class VideoListComponent implements OnInit {
 
       }
     });
+    ga('set', 'page', '/ufo-videos');
+    ga('send', 'pageview');
   }
 
   loadVideoList(page: number) {

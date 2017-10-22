@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../../shared/api.service";
 import {NgForm} from "@angular/forms";
+declare var ga: Function;
 
 @Component({
   selector: 'app-password-reset',
@@ -13,6 +14,8 @@ export class PasswordResetComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    ga('set', 'page', '/reset');
+    ga('send', 'pageview');
   }
 
   sendEmail(form: NgForm) {

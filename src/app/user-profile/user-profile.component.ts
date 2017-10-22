@@ -4,6 +4,7 @@ import {ApiService} from "../shared/api.service";
 import {VideoPost} from "../domain-model/video-post.model";
 import {DataService} from "../shared/data.service";
 import {Title} from "@angular/platform-browser";
+declare var ga: Function;
 
 @Component({
   selector: 'app-user-profile',
@@ -32,6 +33,8 @@ export class UserProfileComponent implements OnInit {
           for (const post of data.videoPosts){
             this.videoPosts.push(this.dataService.getVideoPostModelFromJson(post));
           }
+          ga('set', 'page', '/user/' + this.username);
+          ga('send', 'pageview');
         }
     },
       error => {

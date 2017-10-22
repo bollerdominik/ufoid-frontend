@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {VideoPostService} from "../shared/video-post.service";
 import {VideoPost} from "../domain-model/video-post.model";
 import {ApiService} from "../shared/api.service";
@@ -9,6 +9,8 @@ import {API_URL, DataService} from "../shared/data.service";
 import {Opinion, OpinionState} from "../domain-model/opinion.model";
 import 'rxjs/add/operator/catch';
 import {Title} from "@angular/platform-browser";
+
+declare var ga: Function;
 
 @Component({
   selector: 'app-video-detail',
@@ -64,6 +66,8 @@ export class VideoDetailComponent implements OnInit {
       this.videoPost = this.videoPostService.videoPost;
       this.getOpinions();
     }
+    ga('set', 'page', '/ufo-videos/' + this.videoPost.id);
+    ga('send', 'pageview');
   }
 
   getOpinions() {

@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import 'rxjs/add/operator/catch';
 import {VideoPost} from "../domain-model/video-post.model";
 import {ApiService} from "../shared/api.service";
+declare var ga: Function;
 
 @Component({
   selector: 'app-admin',
@@ -22,6 +23,8 @@ export class AdminComponent implements OnInit {
         if (response.status === 200) {
           this.apiService.getAllVideosForAdmin().subscribe(data => {
             this.videoPosts = data;
+              ga('set', 'page', '/admin');
+              ga('send', 'pageview');
           }
           );
         } else {

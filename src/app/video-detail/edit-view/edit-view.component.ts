@@ -6,6 +6,7 @@ import {VideoPost} from "../../domain-model/video-post.model";
 import {MapsAPILoader} from "@agm/core";
 import {API_URL, DataService} from "../../shared/data.service";
 import {Location} from '@angular/common';
+declare var ga: Function;
 
 declare var google: any;
 
@@ -31,6 +32,8 @@ export class EditViewComponent implements OnInit {
       this.apiService.getVideoDetail(+params["id"]).subscribe(
         (response: Response) => {
           this.videoPost = this.dataService.getVideoPostModelFromJson(response.json());
+          ga('set', 'page', '/ufo-videos/' + this.videoPost.id + '/edit');
+          ga('send', 'pageview');
           if (!this.isUserLoggedIn()) {
             this.cancel();
           }

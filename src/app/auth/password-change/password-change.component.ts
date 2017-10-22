@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {ApiService} from "../../shared/api.service";
 import {NgForm} from "@angular/forms";
+declare var ga: Function;
 
 @Component({
   selector: 'app-password-change',
@@ -16,6 +17,8 @@ export class PasswordChangeComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => this.token = params['token']);
+    ga('set', 'page', '/change');
+    ga('send', 'pageview');
   }
 
   changePassword(form: NgForm) {

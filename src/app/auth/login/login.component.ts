@@ -3,6 +3,7 @@ import {AuthService} from "../../shared/auth.service";
 import {NgForm} from "@angular/forms";
 import {Response} from "@angular/http";
 import {Router} from "@angular/router";
+declare var ga: Function;
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    ga('set', 'page', 'login');
+    ga('send', 'pageview');
   }
 
   onLogIn(form: NgForm) {

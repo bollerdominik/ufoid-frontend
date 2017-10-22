@@ -9,8 +9,6 @@ import {Response} from "@angular/http";
 })
 export class AppComponent implements OnInit {
 
-  title = 'app works!';
-
   constructor(private authService: AuthService) {
   }
 
