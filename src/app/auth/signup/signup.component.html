@@ -32,7 +32,7 @@
           <button class="nav-link--login" type="submit">Sign Up</button>
           <div class="form-control-feedback">
             <div *ngIf="signUpSuccess" class="alert alert-success" role="alert">Account created successfully! You can <a routerLink="../login">log in</a> now</div>
-            <div *ngIf="existingLoginError" class="alert alert-danger" role="alert">Username or Email is already register. <a routerLink="../login">log in</a> or create a new account</div>
+            <div *ngIf="existingLoginError" class="alert alert-danger" role="alert">Username or Email is already registered. <a routerLink="../login"> Log in</a> or create a new account</div>
             <div *ngIf="otherError" class="alert alert-danger" role="alert">Could not register account</div>
           </div>
         </form>
