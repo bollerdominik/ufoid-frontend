@@ -134,6 +134,7 @@
   background-color: transparent;
   min-width: 70%;
   margin: 0 auto;
+  height: initial!important;
 }
 
 .commenting.btn-success {
