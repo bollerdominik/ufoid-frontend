@@ -80,7 +80,7 @@
           <div class="panel panel-default" *ngIf="(this.opinionState[opinion.opinionState] == opinionState.YES)">
             <div class="panel-heading">
               <strong>
-                <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{opinion.username}}</a>
+                <a routerLink="/user/{{opinion.username}}"><i class="fa fa-user"></i> {{opinion.username}}</a>
               </strong>
               <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
             </div>
@@ -95,7 +95,7 @@
           <div class="panel panel-default" *ngIf="this.opinionState[opinion.opinionState] == opinionState.NO">
             <div class="panel-heading">
               <strong>
-                <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{opinion.username}}</a>
+                <a routerLink="/user/{{opinion.username}}"><i class="fa fa-user"></i> {{opinion.username}}</a>
               </strong>
               <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
             </div>
@@ -123,7 +123,7 @@
             <div class="panel panel-default" *ngIf="(this.opinionState[opinion.opinionState] == opinionState.YES)">
               <div class="panel-heading">
                 <strong>
-                  <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{opinion.username}}</a>
+                  <a routerLink="/user/{{opinion.username}}"><i class="fa fa-user"></i> {{opinion.username}}</a>
                 </strong>
                 <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
               </div>
@@ -136,7 +136,7 @@
             <div class="panel panel-default" *ngIf="this.opinionState[opinion.opinionState] == opinionState.NO">
               <div class="panel-heading">
                 <strong>
-                  <a routerLink="/user/{{videoPost.user}}"><i class="fa fa-user"></i> {{opinion.username}}</a>
+                  <a routerLink="/user/{{opinion.username}}"><i class="fa fa-user"></i> {{opinion.username}}</a>
                 </strong>
                 <span class="text-muted">commented {{timeSince(opinion.date)}} ago</span>
               </div>
