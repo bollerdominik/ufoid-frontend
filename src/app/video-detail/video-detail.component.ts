@@ -57,7 +57,6 @@ export class VideoDetailComponent implements OnInit {
         this.apiService.getVideoDetail(+params["id"]).subscribe(
           (response: Response) => {
             this.videoPost = this.dataService.getVideoPostModelFromJson(response.json());
-            this.titleService.setTitle('UFO Detector | Video - ' + this.videoPost.videoTitle);
             this.getOpinions();
           },
           (error) => console.error(error)
@@ -66,12 +65,13 @@ export class VideoDetailComponent implements OnInit {
       this.videoPost = this.videoPostService.videoPost;
       this.getOpinions();
     }
-    ga('set', 'page', '/ufo-videos/' + this.videoPost.id);
-    ga('send', 'pageview');
   }
 
   getOpinions() {
     if (this.videoPost) {
+      this.titleService.setTitle('UFO Detector | Video - ' + this.videoPost.videoTitle);
+      ga('set', 'page', '/ufo-videos/' + this.videoPost.id);
+      ga('send', 'pageview');
       this.apiService.getOpinionsForVideo(this.videoPost.id).subscribe((data => {
           this.reputation = data.reputation;
           this.opinions = data.opinions;
