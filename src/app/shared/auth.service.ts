@@ -18,10 +18,10 @@ export  class AuthService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const opts: RequestOptionsArgs = { headers: headers };
-    return this.http.post(API_URL + 'users/create', dto, opts);
+    return this.http.post(API_URL + 'users', dto, opts);
   }
 
-  logInUser(username: string, password: string){
+  logInUser(username: string, password: string) {
     const dto: LogInDto = new LogInDto(username, password);
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
