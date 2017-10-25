@@ -37,7 +37,7 @@ export class VideoPost {
 
   getVideoFileName(): string {
     return VIDEO_PREFIX + this.recordingDate.toISOString().slice(0, 10) + '--'
-      + this.recordingDate.toTimeString().slice(0, 8).replace(new RegExp(':', 'g'), '-')
+      + this.recordingDate.toISOString().slice(11, 19).replace(new RegExp(':', 'g'), '-')
       + VIDEO_EXTENSION;
   }
 }
