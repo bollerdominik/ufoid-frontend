@@ -46,7 +46,7 @@ export  class ApiService {
       });
   }
   setVideoPublished(id: number, isPublished: boolean) {
-    return this.http.post(API_URL + 'admin/video/' + id + '/' + isPublished, '', this.getAuthHeader());
+    return this.http.post(API_URL + 'admin/videos/' + id + '/' + isPublished, '', this.getAuthHeader());
   }
   editVideoPost(videoPost: VideoPost) {
     return this.http.put(API_URL + 'videos/' + videoPost.id, videoPost, this.getAuthHeader());
