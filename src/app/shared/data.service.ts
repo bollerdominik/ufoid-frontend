@@ -10,7 +10,7 @@ export const VIDEO_PREFIX = "Capture--";
 export const VIDEO_EXTENSION = ".avi";
 export const WEB_VIDEO_NAME = "video.mp4";
 export const SIZE_PER_PAGE = 6;
-export const API_URL = 'http://localhost:8080/api/'
+export const API_URL = 'http://api.ufoid.net/'
 
 @Injectable()
 export  class DataService {
