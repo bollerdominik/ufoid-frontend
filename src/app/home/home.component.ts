@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(private titleService: Title) { }
 
   ngOnInit() {
-    this.titleService.setTitle('UFO Detector | UFO ID - Record & Analyze UFO Sightings');
+    this.titleService.setTitle('UFO Detector | UFOID - Record & Analyze UFO Sightings');
     ga('set', 'page', '/');
     ga('send', 'pageview');
   }

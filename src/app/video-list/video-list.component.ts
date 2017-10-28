@@ -23,7 +23,7 @@ export class VideoListComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute, private titleService: Title, private apiService: ApiService, private dataService: DataService) { }
 
   ngOnInit() {
-    this.titleService.setTitle('UFO Detector | UFO Videos');
+    this.titleService.setTitle('UFOID | Videos - captured with the UFO Detector');
     this.activeRoute.queryParams.subscribe(data => {
       this.currentPage = isUndefined(data.page) ? 1 : data.page;
       if (!this.fromUser) {
