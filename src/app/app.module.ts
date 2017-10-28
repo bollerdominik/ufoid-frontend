@@ -33,6 +33,7 @@ const appRoutes: Routes = [
   { path: 'ufo-videos', component: VideoListComponent},
   { path: 'ufo-videos/:id/edit', component: EditViewComponent},
   { path: 'ufo-videos/:id/:link', component: VideoDetailComponent},
+  { path: 'ufo-videos/:id', component: VideoDetailComponent},
   { path: '', component: HomeComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'login', component: LoginComponent},
