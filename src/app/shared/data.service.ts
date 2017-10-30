@@ -28,6 +28,12 @@ export  class DataService {
       data.locationLatitudeLongitude, data.numberOfOpinions, data.yesOpinionPercentage,
       data.isPublished, data.downloadCounter);
   }
+  getOwnerVideoPostModelFromJson(data): VideoPost {
+    return new VideoPost(
+      data.id, data.videoTitle, data.uploaderName, data.locationName, new Date(data.recordingDate), new Date(data.uploadDate), data.description,
+      data.locationLatitudeLongitude, data.numberOfOpinions, data.yesOpinionPercentage,
+      data.published);
+  }
   getOpinionFromJson(data): Opinion {
     return new Opinion(data.id, data.text, data.opinionState, data.username, data.date);
   }

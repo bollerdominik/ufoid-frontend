@@ -18,7 +18,7 @@ export class VideoCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (window.localStorage.userName === this.videoPost.user){
+    if (window.localStorage.userName === this.videoPost.user) {
       this.displayEditIcon = true;
     }
   }

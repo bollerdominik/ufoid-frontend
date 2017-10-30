@@ -33,6 +33,11 @@ export class UserProfileComponent implements OnInit {
           for (const post of data.videoPosts){
             this.videoPosts.push(this.dataService.getVideoPostModelFromJson(post));
           }
+          if (data.unpublishedVideoPosts) {
+            for (const post of data.unpublishedVideoPosts){
+              this.videoPosts.push(this.dataService.getOwnerVideoPostModelFromJson(post));
+            }
+          }
           ga('set', 'page', '/user/' + this.username);
           ga('send', 'pageview');
         }
