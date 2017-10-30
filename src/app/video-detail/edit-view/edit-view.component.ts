@@ -34,7 +34,7 @@ export class EditViewComponent implements OnInit {
           this.videoPost = this.dataService.getVideoPostModelFromJson(response.json());
           ga('set', 'page', '/ufo-videos/' + this.videoPost.id + '/edit');
           ga('send', 'pageview');
-          if (!this.isUserLoggedIn()) {
+          if (!this.isUserLoggedIn() && !this.isUserAdmin()) {
             this.cancel();
           }
           if (this.videoPost.locationLatitudeLongitude) {
@@ -51,6 +51,9 @@ export class EditViewComponent implements OnInit {
 
   isUserLoggedIn(): boolean {
     return this.videoPost.user === window.localStorage.userName;
+  }
+  isUserAdmin(): boolean {
+    return window.localStorage.isAdmin;
   }
 
   autocomplete() {

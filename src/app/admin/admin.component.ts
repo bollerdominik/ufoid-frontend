@@ -22,6 +22,7 @@ export class AdminComponent implements OnInit {
       (response: Response) => {
         if (response.status === 200) {
           this.apiService.getAllVideosForAdmin().subscribe(data => {
+            window.localStorage.setItem('isAdmin', 'true');
             this.videoPosts = data;
               ga('set', 'page', '/admin');
               ga('send', 'pageview');
