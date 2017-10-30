@@ -77,7 +77,7 @@ export  class ApiService {
     const body = new FormData();
     body.append('token', token);
     body.append('p', pass);
-    return this.http.post(API_URL + 'change', body);
+    return this.http.post(API_URL + 'reset/change', body);
   }
   getAuthHeader(): RequestOptionsArgs {
     const headers = new Headers();
