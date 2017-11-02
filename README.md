@@ -1,4 +1,4 @@
-# Ufoid Frontend
+# UFOID Frontend
 
 This is a rewrite of the UFOID.net platform using Angular 4
 
