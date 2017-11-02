@@ -50,7 +50,6 @@ export class VideoListComponent implements OnInit {
     this.apiService.getVideoPosts(page).subscribe(
       (response: Response) => {
         this.videoPosts = [];
-        console.log('reading video list from api');
         const data = response.json();
         this.totalVideoPosts = data.total;
         for (const post of data.videoPostList){

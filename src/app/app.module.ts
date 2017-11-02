@@ -40,7 +40,8 @@ const appRoutes: Routes = [
   { path: 'user/:username', component: UserProfileComponent},
   { path: 'admin', component: AdminComponent},
   { path: 'reset', component: PasswordResetComponent},
-  { path: 'change/:token', component: PasswordChangeComponent}
+  { path: 'change/:token', component: PasswordChangeComponent},
+  { path: '**', redirectTo: 'ufo-videos', pathMatch: 'full'}
 ];
 
 @NgModule({
