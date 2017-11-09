@@ -52,7 +52,6 @@ export class VideoDetailComponent implements OnInit {
 
   ngOnInit() {
     if (!this.videoPostService.videoPost) {
-      console.log("load data from api");
       this.route.params.subscribe((params: Params) =>
         this.apiService.getVideoDetail(+params["id"]).subscribe(
           (response: Response) => {
