@@ -11,7 +11,7 @@ export class SoftwareComponent implements OnInit {
   constructor(private titleService: Title) { }
 
   ngOnInit() {
-    this.titleService.setTitle('UFOID | UFO Detector');
+    this.titleService.setTitle('UFOID | UFO Detector - Detect and Capture UFO\'s');
     ga('set', 'page', '/software');
     ga('send', 'pageview');
   }
