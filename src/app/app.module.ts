@@ -26,7 +26,6 @@ import { FooterComponent } from './footer/footer.component';
 import { TitlebarComponent } from './header/titlebar/titlebar.component';
 import { PasswordResetComponent } from './auth/password-reset/password-reset.component';
 import { PasswordChangeComponent } from './auth/password-change/password-change.component';
-import {TooltipModule} from "ngx-tooltip";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 const appRoutes: Routes = [
@@ -75,7 +74,6 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyDEY3dR16Tijupr2gd0-UpUxOttLESkcFs',
       libraries: ['places']
     }),
-    TooltipModule
   ],
   providers: [VideoPostService, ApiService, AuthService, DataService],
   bootstrap: [AppComponent]
