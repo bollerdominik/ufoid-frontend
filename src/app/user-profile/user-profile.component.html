@@ -3,10 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <h2 class="blue-title"><i class="fa fa-user"></i> {{username}}</h2>
-        <p><i class="fa fa-star" tooltip="User reputation"
-              [tooltipDisabled]="false"
-              [tooltipAnimation]="true"
-              tooltipPlacement="bottom"></i> {{reputation}}</p>
+        <p><i class="fa fa-star" placement="top" ngbTooltip="User reputation points"></i> {{reputation}}</p>
         <p *ngIf="uploadToken"><i class="fa fa-key"></i> Upload Token:  <input type="text" value={{uploadToken}} readonly></p>
       </div>
       </div>

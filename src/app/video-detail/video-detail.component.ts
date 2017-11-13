@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {VideoPostService} from "../shared/video-post.service";
 import {VideoPost} from "../domain-model/video-post.model";
 import {ApiService} from "../shared/api.service";
@@ -9,6 +9,7 @@ import {API_URL, DataService} from "../shared/data.service";
 import {Opinion, OpinionState} from "../domain-model/opinion.model";
 import 'rxjs/add/operator/catch';
 import {Title} from "@angular/platform-browser";
+import {NgbPopover} from "@ng-bootstrap/ng-bootstrap";
 
 declare var ga: Function;
 
@@ -17,7 +18,7 @@ declare var ga: Function;
   templateUrl: './video-detail.component.html',
   styleUrls: ['./video-detail.component.css']
 })
-export class VideoDetailComponent implements OnInit {
+export class VideoDetailComponent implements OnInit, AfterViewInit {
   public videoPost: VideoPost;
   public authError = false;
   public opinions: Opinion[];
@@ -31,7 +32,7 @@ export class VideoDetailComponent implements OnInit {
   public errorSavingOpinionNotLoggedIn: boolean = false;
   public reputation: number;
   public API = API_URL;
-
+  @ViewChild('p') public popover: NgbPopover;
   public progressBarWidth = {
     yes: 50,
     no: 50
@@ -64,6 +65,9 @@ export class VideoDetailComponent implements OnInit {
       this.videoPost = this.videoPostService.videoPost;
       this.getOpinions();
     }
+  }
+  ngAfterViewInit() {
+    this.popover.toggle();
   }
 
   getOpinions() {

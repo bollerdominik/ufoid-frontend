@@ -48,8 +48,8 @@
             </label>
           </div>
         </div>
-        <textarea class="form-control" id="exampleTextarea" rows="6" placeholder="What is your opinion about the video?" [(ngModel)]="newOpinionText"></textarea>
-        <button type="submit" class="btn btn-primary submit-opinion" (click)="addOpinion()">Add your opinion...</button>
+        <textarea class="form-control" id="exampleTextarea" rows="6" placeholder="What is your opinion about the video?" [(ngModel)]="newOpinionText" (click)="popover.close()"></textarea>
+        <button type="submit" class="btn btn-primary submit-opinion" (click)="addOpinion()" ngbPopover="Contribute your opinion and help the community understand a UFO sighting" popoverTitle="Help to analyze the video" #p="ngbPopover" placement="top">Add your opinion...</button>
         <div class="row error-wrapper--form">
           <div *ngIf="errorSavingOpinion" class="alert alert-danger" role="alert">{{errorSavingOpinionText}}</div>
         </div>

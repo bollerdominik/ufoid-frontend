@@ -27,6 +27,7 @@ import { TitlebarComponent } from './header/titlebar/titlebar.component';
 import { PasswordResetComponent } from './auth/password-reset/password-reset.component';
 import { PasswordChangeComponent } from './auth/password-change/password-change.component';
 import {TooltipModule} from "ngx-tooltip";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 const appRoutes: Routes = [
   { path: 'software', component: SoftwareComponent },
@@ -68,6 +69,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDEY3dR16Tijupr2gd0-UpUxOttLESkcFs',
